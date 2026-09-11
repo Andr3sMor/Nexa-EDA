@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { PbiCard, PbiVisual, PbiBarChart, PbiTable, PbiCallout, PbiSlicer, PALETA_PBI } from "./ui.jsx";
 import d from "../datos/agregados.json";
 
@@ -23,7 +23,7 @@ export function PreguntasNegocio({ alIrAExplorador }) {
   const motivosConDatos = a.motivo_no_pago.filter((m) => m.clave !== "NINGUNO");
 
   return (
-    <div className="pbi-canvas-page">
+    <div className="dash-page">
       {/* Panel Superior de Filtro de Pregunta (Slicer) */}
       <div className="pbi-slicer-bar">
         <PbiSlicer
@@ -38,28 +38,28 @@ export function PreguntasNegocio({ alIrAExplorador }) {
       {/* PREGUNTA A: MOTIVOS DE NO PAGO */}
       {/* ========================================================================= */}
       {(preguntaActiva === "todas" || preguntaActiva === "a") && (
-        <section className="pbi-section-block">
-          <div className="pbi-section-title-bar">
-            <span className="pbi-section-tag">Pregunta de Negocio (a)</span>
-            <h2 className="pbi-section-heading">¿Cuáles son los principales motivos de no pago?</h2>
+        <section className="section-block">
+          <div className="section-heading-bar">
+            <span className="section-tag">Pregunta de Negocio (a)</span>
+            <h2 className="section-heading">¿Cuáles son los principales motivos de no pago?</h2>
           </div>
 
-          <div className="pbi-executive-summary-card">
-            <div className="summary-title">Conclusión Analítica</div>
-            <p className="summary-text">
+          <div className="exec-summary">
+            <div className="exec-summary-label">Conclusión Analítica</div>
+            <p className="exec-summary-text">
               En el 36,7% de las conversaciones en las que el cliente manifiesta explícitamente su causa de mora,
               el motivo predominante es <strong>Ingresos Insuficientes</strong> (139 casos, 31,7% de motivos declarados),
               seguido por <strong>Desacuerdo con el monto o cobro</strong> (84 casos, 19,2%),{" "}
               <strong>Descuento por nómina no aplicado</strong> (62 casos, 14,2%) y{" "}
               <strong>Desempleo</strong> (57 casos, 13,0%).
             </p>
-            <p className="summary-subtext">
+            <p className="exec-summary-sub">
               En el 63,3% restante no se registra motivo (interacción trunca, validación de identidad o evasión). Un validador
               determinista de rol verificó que las citas provengan textualmente del cliente, descartando alucinaciones del modelo.
             </p>
           </div>
 
-          <div className="pbi-cards-grid cols-4">
+          <div className="kpi-grid cols-4">
             <PbiCard
               titulo="Motivos Identificados"
               valor={motivosConDatos.reduce((acc, x) => acc + x.n, 0)}
@@ -86,7 +86,7 @@ export function PreguntasNegocio({ alIrAExplorador }) {
             />
           </div>
 
-          <div className="pbi-visuals-grid cols-2">
+          <div className="panels-grid cols-2">
             <PbiVisual
               titulo="Distribución de Motivos de No Pago Verificados"
               subtitulo="Variable motivo_no_pago respaldada por evidencia textual [USUARIO]"
@@ -98,10 +98,10 @@ export function PreguntasNegocio({ alIrAExplorador }) {
               titulo="Evidencias Literales Citadas por los Clientes"
               subtitulo="Muestra de expresiones reales capturadas del corpus de WhatsApp"
             >
-              <div className="pbi-evidence-list">
+              <div className="evidence-list">
                 {a.ejemplos_evidencia.slice(0, 5).map((item, idx) => (
-                  <div key={idx} className="pbi-evidence-item">
-                    <span className="evidence-motivo">{item.motivo.replace(/_/g, " ")}</span>
+                  <div key={idx} className="evidence-item">
+                    <span className="evidence-tag">{item.motivo.replace(/_/g, " ")}</span>
                     <span className="evidence-quote">"{item.evidencia}"</span>
                   </div>
                 ))}
@@ -115,15 +115,15 @@ export function PreguntasNegocio({ alIrAExplorador }) {
       {/* PREGUNTA B: OFERTAS DE ASESORES */}
       {/* ========================================================================= */}
       {(preguntaActiva === "todas" || preguntaActiva === "b") && (
-        <section className="pbi-section-block">
-          <div className="pbi-section-title-bar">
-            <span className="pbi-section-tag">Pregunta de Negocio (b)</span>
-            <h2 className="pbi-section-heading">¿Qué ofertas realizan los asesores para lograr un acuerdo de pago?</h2>
+        <section className="section-block">
+          <div className="section-heading-bar">
+            <span className="section-tag">Pregunta de Negocio (b)</span>
+            <h2 className="section-heading">¿Qué ofertas realizan los asesores para lograr un acuerdo de pago?</h2>
           </div>
 
-          <div className="pbi-executive-summary-card">
-            <div className="summary-title">Conclusión Analítica</div>
-            <p className="summary-text">
+          <div className="exec-summary">
+            <div className="exec-summary-label">Conclusión Analítica</div>
+            <p className="exec-summary-text">
               Los asesores formulan ofertas comerciales en el <strong>{pct(b.conversaciones_con_oferta_pct)}</strong>{" "}
               de las conversaciones analizadas ({b.conversaciones_con_oferta} interacciones), con una media de{" "}
               <strong>{b.ofertas_por_conversacion_media}</strong> alternativas presentadas por llamada.
@@ -133,7 +133,7 @@ export function PreguntasNegocio({ alIrAExplorador }) {
             </p>
           </div>
 
-          <div className="pbi-cards-grid cols-3">
+          <div className="kpi-grid cols-3">
             <PbiCard
               titulo="Conversaciones con Oferta"
               valor={pct(b.conversaciones_con_oferta_pct)}
@@ -154,7 +154,7 @@ export function PreguntasNegocio({ alIrAExplorador }) {
             />
           </div>
 
-          <div className="pbi-visuals-grid cols-2">
+          <div className="panels-grid cols-2">
             <PbiVisual titulo="Frecuencia por Tipo de Oferta Comercial Formulada">
               <PbiBarChart datos={b.ofertas} campo="n" sufijo=" ofertas" color={PALETA_PBI.azul2} />
             </PbiVisual>
@@ -170,22 +170,22 @@ export function PreguntasNegocio({ alIrAExplorador }) {
       {/* PREGUNTA C: OFRECIMIENTOS Y EFECTIVIDAD EN ACUERDOS */}
       {/* ========================================================================= */}
       {(preguntaActiva === "todas" || preguntaActiva === "c") && (
-        <section className="pbi-section-block">
-          <div className="pbi-section-title-bar">
-            <span className="pbi-section-tag">Pregunta de Negocio (c)</span>
-            <h2 className="pbi-section-heading">
+        <section className="section-block">
+          <div className="section-heading-bar">
+            <span className="section-tag">Pregunta de Negocio (c)</span>
+            <h2 className="section-heading">
               ¿Qué ofrecimientos o argumentos que realiza el asesor logran más acuerdos de pago?
             </h2>
           </div>
 
-          <div className="pbi-executive-summary-card">
-            <div className="summary-title">Conclusión Analítica y Rigor Metodológico</div>
-            <p className="summary-text">
+          <div className="exec-summary">
+            <div className="exec-summary-label">Conclusión Analítica y Rigor Metodológico</div>
+            <p className="exec-summary-text">
               Aplicando la definición vinculante estricta del enunciado (
               <em>"aquellos casos en los que el cliente manifieste explícitamente su compromiso de pago indicando una fecha específica"</em>
               ), se registran <strong>78 acuerdos de pago verificados (6,5% del corpus)</strong>.
             </p>
-            <p className="summary-subtext">
+            <p className="exec-summary-sub">
               En términos observacionales, ofertas como <strong>Pago Inmediato con Descuento (8,2%)</strong> y argumentos como{" "}
               <strong>Evitar Reporte a Centrales de Riesgo (7,9%)</strong> muestran tasas ligeramente superiores a la media.
               Sin embargo, <strong>estas tasas son correlacionales, no causales</strong>: el asesor selecciona qué oferta presentar
@@ -193,12 +193,12 @@ export function PreguntasNegocio({ alIrAExplorador }) {
             </p>
           </div>
 
-          <PbiCallout tipo="alerta" titulo="Control de Calidad: Corrección de Sobreestimación del LLM">
+          <PbiCallout tipo="warning" titulo="Control de Calidad: Corrección de Sobreestimación del LLM">
             El modelo sin validador de rol inflaba la tasa a 321 acuerdos (26,8%) al computar promesas del propio asesor.
             La verificación determinista sobre mensajes [USUARIO] corrigió el valor a <strong>78 acuerdos reales (6,5%)</strong>.
           </PbiCallout>
 
-          <div className="pbi-visuals-grid cols-2" style={{ marginTop: 14 }}>
+          <div className="panels-grid cols-2" style={{ marginTop: 14 }}>
             <PbiVisual
               titulo="Tasa Observacional de Acuerdo por Tipo de Oferta"
               subtitulo="Línea base global del corpus: 6,5%"
@@ -254,22 +254,22 @@ export function PreguntasNegocio({ alIrAExplorador }) {
       {/* PREGUNTA D: RESUMEN DE LLAMADAS */}
       {/* ========================================================================= */}
       {(preguntaActiva === "todas" || preguntaActiva === "d") && (
-        <section className="pbi-section-block">
-          <div className="pbi-section-title-bar">
-            <span className="pbi-section-tag">Pregunta de Negocio (d)</span>
-            <h2 className="pbi-section-heading">
+        <section className="section-block">
+          <div className="section-heading-bar">
+            <span className="section-tag">Pregunta de Negocio (d)</span>
+            <h2 className="section-heading">
               ¿Qué está pasando en las conversaciones? Resumen de cada una de las llamadas
             </h2>
           </div>
 
-          <div className="pbi-executive-summary-card">
-            <div className="summary-title">Conclusión Analítica</div>
-            <p className="summary-text">
+          <div className="exec-summary">
+            <div className="exec-summary-label">Conclusión Analítica</div>
+            <p className="exec-summary-text">
               Se procesaron <strong>1.197 resúmenes sintéticos</strong> (cobertura 100% del corpus), estructurando
               el objetivo del contacto, la respuesta del cliente, la propuesta comercial y el desenlace de la llamada.
             </p>
             <div style={{ marginTop: 8 }}>
-              <button type="button" className="pbi-btn-action" onClick={alIrAExplorador}>
+              <button type="button" className="btn btn-primary" onClick={alIrAExplorador}>
                 Abrir Explorador Interactivo de las 1.197 Conversaciones
               </button>
             </div>
@@ -309,29 +309,29 @@ export function PreguntasNegocio({ alIrAExplorador }) {
       {/* PREGUNTA E: MENOR SATISFACCIÓN Y TOP 5 PEORES CASOS */}
       {/* ========================================================================= */}
       {(preguntaActiva === "todas" || preguntaActiva === "e") && (
-        <section className="pbi-section-block">
-          <div className="pbi-section-title-bar">
-            <span className="pbi-section-tag">Pregunta de Negocio (e)</span>
-            <h2 className="pbi-section-heading">
+        <section className="section-block">
+          <div className="section-heading-bar">
+            <span className="section-tag">Pregunta de Negocio (e)</span>
+            <h2 className="section-heading">
               ¿Qué características tienen las conversaciones con menor satisfacción? (Top 5 Peores Casos)
             </h2>
           </div>
 
-          <div className="pbi-executive-summary-card">
-            <div className="summary-title">Conclusión Analítica y Factores Críticos</div>
-            <p className="summary-text">
+          <div className="exec-summary">
+            <div className="exec-summary-label">Conclusión Analítica y Factores Críticos</div>
+            <p className="exec-summary-text">
               Las conversaciones con menor puntuación presentan una combinación de tres fallas operativas:{" "}
               <strong>No se resuelve la solicitud del cliente</strong> (342 casos),{" "}
               <strong>Falta de flexibilidad en la alternativa de pago</strong> (268 casos) y{" "}
               <strong>Fricción técnica con el bot automatizado</strong> (bucles de repetición y demoras en transferir a humano).
             </p>
-            <p className="summary-subtext">
+            <p className="exec-summary-sub">
               Validación metodológica: El score híbrido presenta una correlación de Spearman de <strong>+0,759</strong>{" "}
               contra el NPS real declarado por los clientes (n=217), confirmando su validez empírica.
             </p>
           </div>
 
-          <div className="pbi-cards-grid cols-3">
+          <div className="kpi-grid cols-3">
             <PbiCard
               titulo="Score Medio del Corpus"
               valor={`${e.score_medio} / 100`}
@@ -376,7 +376,7 @@ export function PreguntasNegocio({ alIrAExplorador }) {
                 {
                   clave: "recomendacion_mejora",
                   titulo: "Recomendación Concreta de Mejora",
-                  render: (f) => <span className="pbi-rec-text">{f.recomendacion_mejora}</span>,
+                  render: (f) => <span className="text-sm">{f.recomendacion_mejora}</span>,
                 },
               ]}
               filas={e.peores.slice(0, 5)}
@@ -384,7 +384,7 @@ export function PreguntasNegocio({ alIrAExplorador }) {
             />
           </PbiVisual>
 
-          <div className="pbi-visuals-grid cols-2" style={{ marginTop: 14 }}>
+          <div className="panels-grid cols-2" style={{ marginTop: 14 }}>
             <PbiVisual titulo="Factores de Insatisfacción Más Frecuentes">
               <PbiBarChart
                 datos={e.factores.filter((f) => f.clave !== "NINGUNO")}

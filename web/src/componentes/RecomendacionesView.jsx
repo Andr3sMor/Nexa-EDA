@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { PbiVisual, PbiCard, PALETA_PBI } from "./ui.jsx";
 
 export function RecomendacionesView() {
@@ -46,10 +46,10 @@ export function RecomendacionesView() {
   const ini = INICIATIVAS[iniciativaSeleccionada];
 
   return (
-    <div className="pbi-canvas-page">
-      <div className="pbi-section-title-bar">
-        <span className="pbi-section-tag">Reto Técnico 3.d · Recomendaciones de Negocio</span>
-        <h2 className="pbi-section-heading">Plan Estratégico para la Operación de Cobranza</h2>
+    <div className="dash-page">
+      <div className="section-heading-bar">
+        <span className="section-tag">Reto Técnico 3.d · Recomendaciones de Negocio</span>
+        <h2 className="section-heading">Plan Estratégico para la Operación de Cobranza</h2>
       </div>
 
       {/* Matriz de Iniciativas */}
@@ -57,13 +57,13 @@ export function RecomendacionesView() {
         titulo="Matriz de Iniciativas Estratégicas (Priorización de Cartera)"
         subtitulo="Seleccione una iniciativa para ver el diagnóstico, acción operativa y meta de impacto"
       >
-        <div className="pbi-cards-grid cols-4">
+        <div className="kpi-grid cols-4">
           {INICIATIVAS.map((item) => {
             const activo = item.id === iniciativaSeleccionada;
             return (
               <div
                 key={item.id}
-                className={`pbi-ini-card ${activo ? "active" : ""}`}
+                className={`ini-card ${activo ? "active" : ""}`}
                 style={{ borderTopColor: item.color }}
                 onClick={() => setIniciativaSeleccionada(item.id)}
               >
@@ -83,18 +83,18 @@ export function RecomendacionesView() {
           titulo={`Detalle Operativo: ${ini.titulo}`}
           subtitulo={ini.prioridad}
         >
-          <div className="pbi-cards-grid cols-3">
-            <div className="pbi-detail-box">
+          <div className="kpi-grid cols-3">
+            <div className="detail-box">
               <span className="box-label">1. Evidencia en los Datos del Corpus</span>
               <p className="box-content">{ini.evidencia}</p>
             </div>
 
-            <div className="pbi-detail-box">
+            <div className="detail-box">
               <span className="box-label">2. Acción Operativa Recomendada</span>
               <p className="box-content">{ini.accion}</p>
             </div>
 
-            <div className="pbi-detail-box">
+            <div className="detail-box">
               <span className="box-label">3. KPI de Impacto Proyectado</span>
               <p className="box-content" style={{ fontWeight: 600, color: PALETA_PBI.verde }}>
                 {ini.kpiImpacto}
@@ -104,9 +104,9 @@ export function RecomendacionesView() {
         </PbiVisual>
       </div>
 
-      <div className="pbi-visuals-grid cols-2" style={{ marginTop: 14 }}>
+      <div className="panels-grid cols-2" style={{ marginTop: 14 }}>
         <PbiVisual titulo="Principales Hallazgos de Cartera">
-          <ul className="pbi-clean-list">
+          <ul className="clean-list">
             <li>
               <strong>Tasa real de acuerdos del 6,5%:</strong> Exigir fecha explícita demuestra que la mayoría de
               conversaciones son consultas o promesas sin compromiso formal.
@@ -123,7 +123,7 @@ export function RecomendacionesView() {
         </PbiVisual>
 
         <PbiVisual titulo="Alineación Regulatoria y Buenas Prácticas">
-          <ul className="pbi-clean-list">
+          <ul className="clean-list">
             <li>
               <strong>Cumplimiento de la Ley 2300 de 2023:</strong> Garantizar la debida diligencia en canales y
               horarios autorizados para mitigar riesgos sancionatorios ante la SIC y SFC.

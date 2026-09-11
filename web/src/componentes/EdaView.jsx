@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { PbiVisual, PbiCard, PbiBarChart, PbiTable, PbiCallout, PALETA_PBI } from "./ui.jsx";
 import d from "../datos/agregados.json";
 
@@ -29,13 +29,13 @@ export function EdaView() {
   ];
 
   return (
-    <div className="pbi-canvas-page">
-      <div className="pbi-section-title-bar">
-        <span className="pbi-section-tag">Análisis Exploratorio de Datos (EDA)</span>
-        <h2 className="pbi-section-heading">Estructura del Corpus y Hechos Determinantes</h2>
+    <div className="dash-page">
+      <div className="section-heading-bar">
+        <span className="section-tag">Análisis Exploratorio de Datos (EDA)</span>
+        <h2 className="section-heading">Estructura del Corpus y Hechos Determinantes</h2>
       </div>
 
-      <div className="pbi-cards-grid cols-4" style={{ marginBottom: 14 }}>
+      <div className="kpi-grid cols-4" style={{ marginBottom: 14 }}>
         <PbiCard
           titulo="Mensajes Depurados"
           valor={e.filas_dedup.toLocaleString("es")}
@@ -62,13 +62,13 @@ export function EdaView() {
         />
       </div>
 
-      <div className="pbi-visuals-grid cols-2">
+      <div className="panels-grid cols-2">
         <PbiVisual titulo="Distribución de Mensajes por Rol Emisor">
           <PbiBarChart datos={roles} campo="n" sufijo=" msjs" color={PALETA_PBI.azul1} />
         </PbiVisual>
 
         <PbiVisual titulo="Hechos Estructurales que Condicionan el Análisis">
-          <ul className="pbi-clean-list">
+          <ul className="clean-list">
             {e.hechos.map((h, i) => (
               <li key={i}>{h}</li>
             ))}
@@ -81,7 +81,7 @@ export function EdaView() {
           titulo="Hallazgo Crítico: Anonimización por Subcadena (71,5% de Conversaciones Afectadas)"
           subtitulo="El anonimizador sustituyó nombres propios sin exigir palabra completa, rompiendo términos de tiempo"
         >
-          <PbiCallout tipo="alerta" titulo="Mitigación Aplicada en el Prompt y Validación">
+          <PbiCallout tipo="warning" titulo="Mitigación Aplicada en el Prompt y Validación">
             La sustitución de 'ANA' por 'PERSONA_00000008' transformó palabras como 'MAÑANA' en 'MAÑPERSONA_00000008'.
             Se diseñó una regla de normalización léxica en prompts.py para decodificar estos marcadores antes de
             clasificar la fecha de compromiso del cliente.
@@ -100,7 +100,7 @@ export function EdaView() {
         </PbiVisual>
       </div>
 
-      <div className="pbi-visuals-grid cols-2" style={{ marginTop: 14 }}>
+      <div className="panels-grid cols-2" style={{ marginTop: 14 }}>
         <PbiVisual titulo="Evolución del Sentimiento del Cliente (Inicial vs. Final)">
           <PbiTable
             columnas={[

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+﻿import React, { useState, useMemo } from "react";
 import { PbiVisual, PbiCard, PbiSlicer, PALETA_PBI } from "./ui.jsx";
 import datosLlamadas from "../datos/conversaciones_resumen.json";
 
@@ -40,21 +40,21 @@ export function ExploradorLlamadas() {
   const visibles = filtradas.slice(inicio, inicio + porPagina);
 
   return (
-    <div className="pbi-canvas-page">
-      <div className="pbi-section-title-bar">
-        <span className="pbi-section-tag">Pregunta (d) · Auditoría de Casos</span>
-        <h2 className="pbi-section-heading">
+    <div className="dash-page">
+      <div className="section-heading-bar">
+        <span className="section-tag">Pregunta (d) · Auditoría de Casos</span>
+        <h2 className="section-heading">
           Explorador de Casos y Resúmenes de Conversación (1.197 Conversaciones)
         </h2>
       </div>
 
       {/* Panel Superior de Slicers de Power BI */}
-      <div className="pbi-filters-panel">
-        <div className="pbi-filter-input-cell">
-          <label className="pbi-filter-label">Búsqueda rápida:</label>
+      <div className="filters-bar">
+        <div className="filter-cell">
+          <label className="filter-label">Búsqueda rápida:</label>
           <input
             type="text"
-            className="pbi-input-text"
+            className="input-search"
             placeholder="Buscar por ID o texto en resumen..."
             value={busqueda}
             onChange={(e) => {
@@ -109,14 +109,14 @@ export function ExploradorLlamadas() {
       </div>
 
       {/* Grid Principal: Matriz de Casos + Panel de Detalle */}
-      <div className="pbi-explorer-grid">
+      <div className="explorer-layout">
         <div className="pbi-explorer-table-cell">
-          <div className="pbi-table-toolbar-info">
+          <div className="text-sm text-secondary mb-8">
             Registros encontrados: <strong>{total}</strong> de {datosLlamadas.length}
           </div>
 
-          <div className="pbi-table-wrapper">
-            <table className="pbi-matrix-table">
+          <div className="table-container">
+            <table className="data-table">
               <thead>
                 <tr>
                   <th style={{ width: "130px" }}>ID Conversación</th>
@@ -139,7 +139,7 @@ export function ExploradorLlamadas() {
                       <td><strong>{item.id}</strong></td>
                       <td><div className="table-clamp-text">{item.resumen}</div></td>
                       <td>
-                        <span className="pbi-motivo-tag">
+                        <span className="badge badge-neutral">
                           {item.motivo === "NINGUNO" ? "No declarado" : item.motivo.replace(/_/g, " ")}
                         </span>
                       </td>
@@ -161,21 +161,21 @@ export function ExploradorLlamadas() {
               </tbody>
             </table>
 
-            <div className="pbi-table-pagination">
+            <div className="table-pagination">
               <button
                 type="button"
-                className="pbi-pag-btn"
+                className="pag-btn"
                 disabled={pagina === 1}
                 onClick={() => setPagina((p) => Math.max(1, p - 1))}
               >
                 Anterior
               </button>
-              <span className="pbi-pag-text">
+              <span className="pag-info">
                 Página {pagina} de {totalPaginas}
               </span>
               <button
                 type="button"
-                className="pbi-pag-btn"
+                className="pag-btn"
                 disabled={pagina >= totalPaginas}
                 onClick={() => setPagina((p) => Math.min(totalPaginas, p + 1))}
               >
@@ -186,18 +186,18 @@ export function ExploradorLlamadas() {
         </div>
 
         {/* Panel Lateral de Detalle del Caso Seleccionado */}
-        <div className="pbi-explorer-detail-cell">
+        <div className="detail-panel">
           {seleccionada && (
             <PbiVisual
               titulo={`Detalle: ${seleccionada.id}`}
               subtitulo={`Score Calculado: ${seleccionada.score} / 100`}
             >
-              <div className="pbi-detail-block">
-                <div className="detail-header-label">Resumen de la Conversación</div>
-                <p className="detail-body-text">{seleccionada.resumen}</p>
+              <div className="detail-block">
+                <div className="detail-label">Resumen de la Conversación</div>
+                <p className="detail-value">{seleccionada.resumen}</p>
               </div>
 
-              <div className="pbi-detail-meta-grid">
+              <div className="detail-meta-grid">
                 <div>
                   <span className="meta-k">Acuerdo de Pago</span>
                   <span className="meta-v">{seleccionada.acuerdo ? "Sí (Verificado)" : "No formalizado"}</span>
@@ -217,20 +217,20 @@ export function ExploradorLlamadas() {
               </div>
 
               {seleccionada.factores && seleccionada.factores.length > 0 && (
-                <div className="pbi-detail-block" style={{ marginTop: 10 }}>
-                  <div className="detail-header-label">Factores de Insatisfacción</div>
-                  <div className="pbi-factors-chips">
+                <div className="detail-block" style={{ marginTop: 10 }}>
+                  <div className="detail-label">Factores de Insatisfacción</div>
+                  <div className="risk-chips">
                     {seleccionada.factores.map((fac, idx) => (
-                      <span key={idx} className="pbi-chip-danger">{fac.replace(/_/g, " ")}</span>
+                      <span key={idx} className="risk-chip">{fac.replace(/_/g, " ")}</span>
                     ))}
                   </div>
                 </div>
               )}
 
               {seleccionada.recomendacion && (
-                <div className="pbi-detail-block" style={{ marginTop: 10 }}>
-                  <div className="detail-header-label">Recomendación Operativa</div>
-                  <div className="pbi-rec-quote">{seleccionada.recomendacion}</div>
+                <div className="detail-block" style={{ marginTop: 10 }}>
+                  <div className="detail-label">Recomendación Operativa</div>
+                  <div className="quote-card">{seleccionada.recomendacion}</div>
                 </div>
               )}
             </PbiVisual>

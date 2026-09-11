@@ -10,76 +10,91 @@ import {
   LabelList,
 } from "recharts";
 
-// Paleta oficial predeterminada de Microsoft Power BI
-export const PALETA_PBI = {
-  azul1: "#118DFF",
-  azul2: "#12239E",
-  morado: "#5C2D91",
-  cian: "#00B4D8",
-  verde: "#059669",
-  naranja: "#E66C37",
-  rojo: "#D83B01",
-  gris: "#605E5C",
-  borde: "#E1DFDD",
-  fondoVisual: "#FFFFFF",
-  fondoCanvas: "#F3F2F1",
+// ─── PALETA OFICIAL ─────────────────────────────────────────────────────────────
+export const PALETA = {
+  accent:   "#6366f1",
+  blue:     "#3b82f6",
+  green:    "#10b981",
+  orange:   "#f97316",
+  red:      "#ef4444",
+  purple:   "#8b5cf6",
+  cyan:     "#06b6d4",
+  yellow:   "#f59e0b",
+  indigo:   "#6366f1",
+  teal:     "#14b8a6",
 };
 
-/** Visual Card de Power BI (Tarjeta de valor único) */
-export function PbiCard({ valor, titulo, subtitulo, indicadorColor }) {
+// Legacy alias
+export const PALETA_PBI = {
+  azul1: PALETA.blue,
+  azul2: "#3730a3",
+  morado: PALETA.purple,
+  cian: PALETA.cyan,
+  verde: PALETA.green,
+  naranja: PALETA.orange,
+  rojo: PALETA.red,
+  gris: "#64748b",
+  borde: "#e2e8f0",
+  fondoVisual: "#ffffff",
+  fondoCanvas: "#f8fafc",
+};
+
+// ─── KPI CARD ─────────────────────────────────────────────────────────────────
+export function PbiCard({ valor, titulo, subtitulo, indicadorColor, icono }) {
   return (
-    <div className="pbi-visual pbi-visual-card">
+    <div className="kpi-card">
       {indicadorColor && (
-        <div className="pbi-card-indicator" style={{ backgroundColor: indicadorColor }} />
+        <div className="kpi-card-accent" style={{ background: indicadorColor }} />
       )}
-      <div className="pbi-card-content">
-        <div className="pbi-card-value">{valor}</div>
-        <div className="pbi-card-title">{titulo}</div>
-        {subtitulo && <div className="pbi-card-sub">{subtitulo}</div>}
-      </div>
+      {icono && <div className="kpi-card-icon">{icono}</div>}
+      <div className="kpi-card-value">{valor}</div>
+      <div className="kpi-card-label">{titulo}</div>
+      {subtitulo && <div className="kpi-card-sub">{subtitulo}</div>}
     </div>
   );
 }
 
-/** Visual Container genérico de Power BI (Contenedor con barra de título sobria) */
+// ─── PANEL VISUAL ─────────────────────────────────────────────────────────────
 export function PbiVisual({ titulo, subtitulo, children, accion, pie }) {
   return (
-    <div className="pbi-visual">
+    <div className="panel">
       {(titulo || accion) && (
-        <div className="pbi-visual-header">
-          <div className="pbi-visual-title-box">
-            {titulo && <h3 className="pbi-visual-title">{titulo}</h3>}
-            {subtitulo && <span className="pbi-visual-subtitle">{subtitulo}</span>}
+        <div className="panel-header">
+          <div className="panel-title-group">
+            {titulo && <h3 className="panel-title">{titulo}</h3>}
+            {subtitulo && <span className="panel-subtitle">{subtitulo}</span>}
           </div>
-          {accion && <div className="pbi-visual-action">{accion}</div>}
+          {accion && <div className="panel-action">{accion}</div>}
         </div>
       )}
-      <div className="pbi-visual-body">{children}</div>
-      {pie && <div className="pbi-visual-footer">{pie}</div>}
+      <div className="panel-body">{children}</div>
+      {pie && <div className="panel-footer">{pie}</div>}
     </div>
   );
 }
 
-/** Segmentador / Slicer estilo Power BI (Lista de opciones sobria con radio o botón) */
+// ─── SLICER ───────────────────────────────────────────────────────────────────
 export function PbiSlicer({ etiqueta, opciones, valorSeleccionado, alCambiar }) {
   return (
-    <div className="pbi-slicer-container">
-      {etiqueta && <span className="pbi-slicer-title">{etiqueta}</span>}
-      <div className="pbi-slicer-list">
+    <div className="slicer-bar">
+      {etiqueta && <span className="slicer-label">{etiqueta}</span>}
+      <div className="slicer-chips">
         {opciones.map((op) => {
-          const val = typeof op === "object" ? op.valor : op;
+          const val   = typeof op === "object" ? op.valor : op;
           const texto = typeof op === "object" ? op.etiqueta : op;
-          const cant = typeof op === "object" ? op.contador : null;
+          const cant  = typeof op === "object" ? op.contador : null;
           const activo = valorSeleccionado === val;
           return (
             <button
               key={val}
               type="button"
-              className={`pbi-slicer-item ${activo ? "activo" : ""}`}
+              className={`chip ${activo ? "active" : ""}`}
               onClick={() => alCambiar(val)}
             >
-              <span className="pbi-slicer-text">{texto}</span>
-              {cant != null && <span className="pbi-slicer-count">({cant})</span>}
+              {texto}
+              {cant != null && (
+                <span style={{ opacity: 0.75, fontSize: "10px" }}>({cant})</span>
+              )}
             </button>
           );
         })}
@@ -88,44 +103,54 @@ export function PbiSlicer({ etiqueta, opciones, valorSeleccionado, alCambiar }) 
   );
 }
 
-/** Gráfico de Barras Horizontales estilo Clustered Bar Chart de Power BI */
-export function PbiBarChart({ datos, campo = "n", altura, color = PALETA_PBI.azul1, sufijo = "" }) {
-  const h = altura ?? Math.max(120, datos.length * 28 + 20);
+// ─── CUSTOM TOOLTIP para Recharts ─────────────────────────────────────────────
+function CustomTooltip({ active, payload, label, sufijo = "" }) {
+  if (!active || !payload?.length) return null;
+  return (
+    <div className="custom-tooltip">
+      <div className="custom-tooltip-label">{label}</div>
+      <div className="custom-tooltip-value">
+        {payload[0].value?.toLocaleString("es")}{sufijo}
+      </div>
+    </div>
+  );
+}
+
+// ─── BAR CHART HORIZONTAL ─────────────────────────────────────────────────────
+export function PbiBarChart({ datos, campo = "n", altura, color = PALETA.accent, sufijo = "" }) {
+  const h = altura ?? Math.max(140, datos.length * 34 + 20);
   return (
     <div style={{ width: "100%", height: h }}>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={datos}
           layout="vertical"
-          margin={{ top: 2, right: 45, bottom: 2, left: 10 }}
+          margin={{ top: 2, right: 55, bottom: 2, left: 8 }}
         >
           <XAxis type="number" hide />
           <YAxis
             type="category"
             dataKey="clave"
-            width={210}
+            width={200}
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 11, fill: "#252423" }}
+            tick={{ fontSize: 12, fill: "#475569", fontFamily: "Inter, sans-serif" }}
           />
           <Tooltip
-            cursor={{ fill: "rgba(0, 120, 212, 0.05)" }}
-            contentStyle={{
-              background: "#FFFFFF",
-              border: "1px solid #E1DFDD",
-              borderRadius: 2,
-              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-              fontSize: 11,
-              padding: "6px 10px",
-            }}
-            formatter={(val) => [`${val.toLocaleString("es")}${sufijo}`, campo]}
+            content={<CustomTooltip sufijo={sufijo} />}
+            cursor={{ fill: "rgba(99,102,241,0.05)" }}
           />
-          <Bar dataKey={campo} fill={color} barSize={15} radius={[0, 1, 1, 0]}>
+          <Bar dataKey={campo} fill={color} barSize={18} radius={[0, 4, 4, 0]}>
             <LabelList
               dataKey={campo}
               position="right"
-              formatter={(v) => `${v.toLocaleString("es")}${sufijo}`}
-              style={{ fill: "#323130", fontSize: 10.5, fontWeight: 600 }}
+              formatter={(v) => `${v?.toLocaleString("es")}${sufijo}`}
+              style={{
+                fill: "#0f172a",
+                fontSize: 11.5,
+                fontWeight: 700,
+                fontFamily: "Inter, sans-serif",
+              }}
             />
           </Bar>
         </BarChart>
@@ -134,7 +159,7 @@ export function PbiBarChart({ datos, campo = "n", altura, color = PALETA_PBI.azu
   );
 }
 
-/** Tabla / Matriz con formato condicional de barras de datos (Data Bars) de Power BI */
+// ─── DATA TABLE CON PAGINACIÓN Y BÚSQUEDA ────────────────────────────────────
 export function PbiTable({ columnas, filas, filasPorPagina = 10, conBuscador = false }) {
   const [pagina, setPagina] = useState(1);
   const [busqueda, setBusqueda] = useState("");
@@ -153,23 +178,22 @@ export function PbiTable({ columnas, filas, filasPorPagina = 10, conBuscador = f
   const visibles = filtradas.slice(inicio, inicio + filasPorPagina);
 
   return (
-    <div className="pbi-table-wrapper">
+    <div className="table-container">
       {conBuscador && (
-        <div className="pbi-table-search-bar">
+        <div className="table-search-bar">
           <input
             type="text"
-            className="pbi-input-text"
+            className="input-search"
             placeholder="Buscar registros..."
             value={busqueda}
-            onChange={(e) => {
-              setBusqueda(e.target.value);
-              setPagina(1);
-            }}
+            onChange={(e) => { setBusqueda(e.target.value); setPagina(1); }}
           />
-          <span className="pbi-table-total-count">{total} filas</span>
+          <span style={{ fontSize: 12, color: "var(--text-muted)" }}>
+            {total.toLocaleString("es")} registros
+          </span>
         </div>
       )}
-      <table className="pbi-matrix-table">
+      <table className="data-table">
         <thead>
           <tr>
             {columnas.map((col) => (
@@ -186,7 +210,10 @@ export function PbiTable({ columnas, filas, filasPorPagina = 10, conBuscador = f
         <tbody>
           {visibles.length === 0 ? (
             <tr>
-              <td colSpan={columnas.length} style={{ textAlign: "center", padding: 16, color: "#605E5C" }}>
+              <td
+                colSpan={columnas.length}
+                style={{ textAlign: "center", padding: 24, color: "var(--text-muted)" }}
+              >
                 Sin registros
               </td>
             </tr>
@@ -197,16 +224,16 @@ export function PbiTable({ columnas, filas, filasPorPagina = 10, conBuscador = f
                   if (col.conBarra) {
                     const pct = Math.min(100, Math.max(0, col.conBarra(fila)));
                     return (
-                      <td key={col.clave} className="num td-data-bar">
-                        <div className="pbi-bar-container">
+                      <td key={col.clave} className="num data-bar-cell">
+                        <div className="data-bar-track">
                           <div
-                            className="pbi-bar-fill"
+                            className="data-bar-fill"
                             style={{
                               width: `${pct}%`,
-                              backgroundColor: col.colorBarra || PALETA_PBI.azul1,
+                              background: col.colorBarra || PALETA.accent,
                             }}
                           />
-                          <span className="pbi-bar-label">
+                          <span className="data-bar-text">
                             {col.render ? col.render(fila) : fila[col.clave]}
                           </span>
                         </div>
@@ -225,25 +252,25 @@ export function PbiTable({ columnas, filas, filasPorPagina = 10, conBuscador = f
         </tbody>
       </table>
       {totalPaginas > 1 && (
-        <div className="pbi-table-pagination">
+        <div className="table-pagination">
           <button
             type="button"
-            className="pbi-pag-btn"
+            className="pag-btn"
             disabled={pagina === 1}
             onClick={() => setPagina((p) => p - 1)}
           >
-            Anterior
+            ← Anterior
           </button>
-          <span className="pbi-pag-text">
-            Página {pagina} de {totalPaginas}
+          <span className="pag-info">
+            Página {pagina} de {totalPaginas} · {total.toLocaleString("es")} registros
           </span>
           <button
             type="button"
-            className="pbi-pag-btn"
+            className="pag-btn"
             disabled={pagina === totalPaginas}
             onClick={() => setPagina((p) => p + 1)}
           >
-            Siguiente
+            Siguiente →
           </button>
         </div>
       )}
@@ -251,12 +278,23 @@ export function PbiTable({ columnas, filas, filasPorPagina = 10, conBuscador = f
   );
 }
 
-/** Cuadro de Nota Analítica o Alerta Regulatoria */
+// ─── CALLOUT ──────────────────────────────────────────────────────────────────
+const CALLOUT_ICONS = {
+  info:    "—",
+  success: "+",
+  warning: "!",
+  danger:  "!",
+  accent:  "·",
+};
+
 export function PbiCallout({ titulo, children, tipo = "info" }) {
   return (
-    <div className={`pbi-callout callout-${tipo}`}>
-      {titulo && <div className="pbi-callout-title">{titulo}</div>}
-      <div className="pbi-callout-body">{children}</div>
+    <div className={`callout callout-${tipo}`}>
+      <span className="callout-icon">{CALLOUT_ICONS[tipo] ?? "ℹ️"}</span>
+      <div className="callout-content">
+        {titulo && <div className="callout-title">{titulo}</div>}
+        <div className="callout-body">{children}</div>
+      </div>
     </div>
   );
 }

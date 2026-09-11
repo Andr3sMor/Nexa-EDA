@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { PbiVisual, PbiCard, PbiTable, PbiCallout, PALETA_PBI } from "./ui.jsx";
 import d from "../datos/agregados.json";
 
@@ -8,13 +8,13 @@ export function MetodologiaView() {
   const nps = c.validacion_nps;
 
   return (
-    <div className="pbi-canvas-page">
-      <div className="pbi-section-title-bar">
-        <span className="pbi-section-tag">Metodología, Validación y Límites</span>
-        <h2 className="pbi-section-heading">Gobernanza de Datos, Validación y Controles de Calidad</h2>
+    <div className="dash-page">
+      <div className="section-heading-bar">
+        <span className="section-tag">Metodología, Validación y Límites</span>
+        <h2 className="section-heading">Gobernanza de Datos, Validación y Controles de Calidad</h2>
       </div>
 
-      <div className="pbi-cards-grid cols-3" style={{ marginBottom: 14 }}>
+      <div className="kpi-grid cols-3" style={{ marginBottom: 14 }}>
         <PbiCard
           titulo="Contrato Pydantic"
           valor="22 Variables"
@@ -35,10 +35,10 @@ export function MetodologiaView() {
         />
       </div>
 
-      <div className="pbi-visuals-grid cols-2">
+      <div className="panels-grid cols-2">
         <PbiVisual titulo="Metodología del Score Híbrido de Satisfacción">
           <p style={{ margin: "0 0 10px", fontSize: 13 }}>{m.score_satisfaccion}</p>
-          <div className="pbi-code-box">
+          <div className="code-box">
             <code>Score = 0.70 * (LLM_1_5 * 20) + 0.30 * (100 - Penalizaciones_Objetivas)</code>
           </div>
           <p style={{ margin: "10px 0 0", fontSize: 12, color: "#605E5C" }}>
@@ -102,10 +102,10 @@ export function MetodologiaView() {
 
       <div style={{ marginTop: 14 }}>
         <PbiVisual titulo="Limitaciones Metodológicas Declaradas">
-          <div className="pbi-limitaciones-list">
+          <div className="lim-list">
             {d.limitaciones.map((lim, idx) => (
-              <div key={idx} className="pbi-limitacion-row">
-                <span className="lim-index">{idx + 1}.</span>
+              <div key={idx} className="lim-row">
+                <span className="lim-num">{idx + 1}.</span>
                 <span className="lim-text">{lim}</span>
               </div>
             ))}
