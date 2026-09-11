@@ -1,801 +1,598 @@
-/* ==========================================================================
-   SISTEMA DE DISEÑO POWER BI + STITCH (Lexicon Precision & Architectural Tech)
-   NEXA - Voice of Customer en Cobranza
-   ========================================================================== */
+/* ==============================================================================
+   ESTILOS MICROSOFT POWER BI SERVICE & DESKTOP (FLUENT UI DESIGN)
+   Tablero de Control de Voice of Customer en Cobranza Bancaria
+   ============================================================================== */
 
 :root {
-  --pbi-canvas: #f1f5f9;
-  --pbi-surface: #ffffff;
-  --pbi-surface-alt: #f8fafc;
-  --pbi-surface-hover: #f1f5f9;
-  --pbi-border: #e2e8f0;
-  --pbi-border-subtle: #cbd5e1;
-
-  --pbi-primary: #0a2540;
-  --pbi-accent: #0078d4;
-  --pbi-accent-hover: #106ebe;
-  --pbi-accent-light: #eff6fc;
-  --pbi-accent-subtle: #e0f2fe;
-
-  --pbi-text-main: #0f172a;
-  --pbi-text-sub: #475569;
-  --pbi-text-muted: #64748b;
-
-  --pbi-success: #059669;
-  --pbi-success-bg: #ecfdf5;
-  --pbi-warning: #d97706;
-  --pbi-warning-bg: #fffbeb;
-  --pbi-danger: #dc2626;
-  --pbi-danger-bg: #fef2f2;
-  --pbi-info-bg: #f0f9ff;
-
-  --pbi-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --pbi-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-  --pbi-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
-  --pbi-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
-
-  --pbi-radius-sm: 4px;
-  --pbi-radius: 8px;
-  --pbi-radius-lg: 12px;
-  --pbi-radius-full: 9999px;
-  --pbi-container: 1360px;
+  --pbi-canvas-bg: #f3f2f1;
+  --pbi-visual-bg: #ffffff;
+  --pbi-visual-border: #e1dfdd;
+  --pbi-visual-header-bg: #ffffff;
+  --pbi-bar-top-bg: #252423;
+  --pbi-tab-bg: #f3f2f1;
+  --pbi-tab-active-bg: #ffffff;
+  --pbi-yellow: #f2c811;
+  --pbi-blue: #118dff;
+  --pbi-blue-dark: #004e8c;
+  --pbi-green: #107c41;
+  --pbi-orange: #e66c37;
+  --pbi-red: #d83b01;
+  --pbi-text-primary: #252423;
+  --pbi-text-secondary: #605e5c;
+  --pbi-text-muted: #8a8886;
+  --pbi-font: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  --pbi-font-mono: Consolas, "Courier New", monospace;
+  --pbi-shadow: 0 1.6px 3.6px 0 rgba(0, 0, 0, 0.132), 0 0.3px 0.9px 0 rgba(0, 0, 0, 0.108);
 }
 
-html.dark {
-  --pbi-canvas: #0b0f19;
-  --pbi-surface: #131b2e;
-  --pbi-surface-alt: #1a233a;
-  --pbi-surface-hover: #222d48;
-  --pbi-border: #23304c;
-  --pbi-border-subtle: #314266;
-
-  --pbi-primary: #e2e8f0;
-  --pbi-accent: #38bdf8;
-  --pbi-accent-hover: #7dd3fc;
-  --pbi-accent-light: #162a45;
-  --pbi-accent-subtle: #1e3a5f;
-
-  --pbi-text-main: #f8fafc;
-  --pbi-text-sub: #94a3b8;
-  --pbi-text-muted: #64748b;
-
-  --pbi-success: #34d399;
-  --pbi-success-bg: #064e3b33;
-  --pbi-warning: #fbbf24;
-  --pbi-warning-bg: #78350f33;
-  --pbi-danger: #f87171;
-  --pbi-danger-bg: #7f1d1d33;
-  --pbi-info-bg: #0c4a6e33;
-
-  --pbi-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-  --pbi-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-  --pbi-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
-}
-
-/* Base */
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background-color: var(--pbi-canvas);
-  color: var(--pbi-text-main);
-  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-  font-size: 14px;
-  line-height: 1.5;
+  padding: 0;
+  background-color: var(--pbi-canvas-bg);
+  color: var(--pbi-text-primary);
+  font-family: var(--pbi-font);
+  font-size: 13px;
+  line-height: 1.45;
   -webkit-font-smoothing: antialiased;
 }
 
-code, kbd, samp, pre {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+code {
+  font-family: var(--pbi-font-mono);
+  font-size: 12px;
+  background: #edebe9;
+  padding: 1px 4px;
+  border-radius: 2px;
 }
 
-/* Layout App */
-.pbi-app {
+/* Contenedor Principal */
+.pbi-app-container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-.pbi-main-content {
-  flex: 1;
-  max-width: var(--pbi-container);
-  width: 100%;
-  margin: 0 auto;
-  padding: 24px 24px 48px;
-}
-
-/* Header & Barra Superior Power BI */
-.pbi-header {
+/* ==============================================================================
+   BARRA SUPERIOR DE POWER BI SERVICE
+   ============================================================================== */
+.pbi-top-header {
+  background: var(--pbi-bar-top-bg);
+  color: #ffffff;
+  border-bottom: 1px solid #3b3a39;
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--pbi-surface);
-  border-bottom: 1px solid var(--pbi-border);
-  box-shadow: var(--pbi-shadow-sm);
 }
 
-.pbi-topbar {
-  max-width: var(--pbi-container);
+.pbi-title-bar {
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 12px 24px;
+  padding: 8px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.pbi-brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.pbi-logo-box {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #0a2540 0%, #0078d4 100%);
-  border-radius: var(--pbi-radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 6px rgba(0, 120, 212, 0.3);
-}
-
-.pbi-logo-icon {
-  font-size: 20px;
-}
-
-.pbi-title-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.pbi-title {
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--pbi-text-main);
-}
-
-.pbi-tag-eval {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 2px 8px;
-  background: var(--pbi-accent-light);
-  color: var(--pbi-accent);
-  border-radius: var(--pbi-radius-sm);
-  border: 1px solid var(--pbi-border);
-}
-
-.pbi-subtitle {
-  font-size: 12px;
-  color: var(--pbi-text-sub);
-}
-
-.pbi-meta-bar {
-  display: flex;
-  align-items: center;
   gap: 16px;
   flex-wrap: wrap;
 }
 
-.pbi-meta-item {
+.pbi-title-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Icono 3 Barras Oficial de Power BI */
+.pbi-logo-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2.5px;
+  height: 20px;
+  width: 18px;
+}
+
+.pbi-logo-bars .bar {
+  background-color: var(--pbi-yellow);
+  border-radius: 1px;
+}
+
+.pbi-logo-bars .bar-1 { width: 4px; height: 10px; }
+.pbi-logo-bars .bar-2 { width: 4px; height: 16px; }
+.pbi-logo-bars .bar-3 { width: 4px; height: 20px; }
+
+.pbi-report-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pbi-report-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.pbi-report-badge {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: #3b3a39;
+  color: #c8c6c4;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+
+.pbi-title-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.pbi-meta-cell {
   display: flex;
   flex-direction: column;
+  text-align: right;
 }
 
-.pbi-meta-label {
-  font-size: 10px;
-  font-weight: 700;
+.meta-k {
+  font-size: 9.5px;
   text-transform: uppercase;
-  color: var(--pbi-text-muted);
-  letter-spacing: 0.05em;
+  color: #a19f9d;
+  letter-spacing: 0.04em;
 }
 
-.pbi-meta-value {
-  font-size: 12px;
+.meta-v {
+  font-size: 11.5px;
   font-weight: 600;
-  color: var(--pbi-text-main);
+  color: #ffffff;
 }
 
-.pbi-theme-toggle {
-  background: var(--pbi-surface-alt);
-  border: 1px solid var(--pbi-border);
-  color: var(--pbi-text-main);
-  padding: 6px 12px;
-  border-radius: var(--pbi-radius);
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+/* ==============================================================================
+   PESTAÑAS DE PÁGINAS DEL INFORME (Tabs inferiores / superiores de Power BI)
+   ============================================================================== */
+.pbi-page-tabs {
+  background: #323130;
+  border-top: 1px solid #3b3a39;
 }
 
-.pbi-theme-toggle:hover {
-  background: var(--pbi-surface-hover);
-  border-color: var(--pbi-accent);
-}
-
-/* Tab Bar de Páginas del Reporte (estilo pestañas Power BI) */
-.pbi-tabbar {
-  background: var(--pbi-surface-alt);
-  border-top: 1px solid var(--pbi-border);
+.pbi-tabs-scroll {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  gap: 2px;
   overflow-x: auto;
 }
 
-.pbi-tabbar-inner {
-  max-width: var(--pbi-container);
-  margin: 0 auto;
-  padding: 0 24px;
-  display: flex;
-  gap: 4px;
-}
-
-.pbi-tab-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
+.pbi-page-tab-btn {
   background: transparent;
+  color: #c8c6c4;
   border: none;
   border-bottom: 3px solid transparent;
-  color: var(--pbi-text-sub);
-  font-size: 13px;
-  font-weight: 600;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.pbi-tab-btn:hover {
-  color: var(--pbi-text-main);
-  background: var(--pbi-surface-hover);
-}
-
-.pbi-tab-btn.activo {
-  color: var(--pbi-accent);
-  border-bottom-color: var(--pbi-accent);
-  background: var(--pbi-surface);
-}
-
-.pbi-tab-badge {
-  font-size: 10px;
-  font-weight: 700;
-  background: var(--pbi-accent-light);
-  color: var(--pbi-accent);
-  padding: 2px 6px;
-  border-radius: var(--pbi-radius-sm);
-}
-
-/* Contenedores de Página */
-.pbi-page-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  animation: fadeIn 0.25s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.pbi-page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--pbi-border);
-}
-
-.pbi-section-pill {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--pbi-accent);
-  margin-bottom: 4px;
-}
-
-.pbi-page-title {
-  font-size: 22px;
-  font-weight: 750;
-  color: var(--pbi-text-main);
-  margin: 0 0 4px;
-  letter-spacing: -0.015em;
-}
-
-.pbi-page-desc {
-  font-size: 13.5px;
-  color: var(--pbi-text-sub);
-  margin: 0;
-  max-width: 900px;
-}
-
-/* Banner Hero */
-.pbi-hero-card {
-  background: linear-gradient(135deg, var(--pbi-surface) 0%, var(--pbi-surface-alt) 100%);
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius-lg);
-  padding: 28px 32px;
-  box-shadow: var(--pbi-shadow);
-}
-
-.pbi-hero-title {
-  font-size: 26px;
-  font-weight: 800;
-  margin: 6px 0 10px;
-  letter-spacing: -0.02em;
-}
-
-.pbi-hero-desc {
-  font-size: 14.5px;
-  color: var(--pbi-text-sub);
-  margin: 0 0 20px;
-  max-width: 960px;
-  line-height: 1.6;
-}
-
-.pbi-hero-buttons {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.pbi-btn-primary {
-  background: var(--pbi-accent);
-  color: #ffffff;
-  border: none;
-  padding: 9px 18px;
-  border-radius: var(--pbi-radius);
-  font-size: 13.5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  box-shadow: 0 2px 4px rgba(0, 120, 212, 0.25);
-}
-
-.pbi-btn-primary:hover {
-  background: var(--pbi-accent-hover);
-  transform: translateY(-1px);
-}
-
-.pbi-btn-secondary {
-  background: var(--pbi-surface);
-  color: var(--pbi-text-main);
-  border: 1px solid var(--pbi-border);
-  padding: 9px 18px;
-  border-radius: var(--pbi-radius);
-  font-size: 13.5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.pbi-btn-secondary:hover {
-  background: var(--pbi-surface-hover);
-  border-color: var(--pbi-accent);
-}
-
-.pbi-btn-link {
-  background: transparent;
-  border: none;
-  color: var(--pbi-accent);
+  padding: 8px 16px;
+  font-family: var(--pbi-font);
   font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
-  padding: 4px 8px;
+  white-space: nowrap;
+  transition: all 0.1s ease;
 }
 
-.pbi-btn-link:hover {
+.pbi-page-tab-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.pbi-page-tab-btn.active {
+  background: var(--pbi-canvas-bg);
+  color: var(--pbi-text-primary);
+  border-bottom-color: var(--pbi-yellow);
+}
+
+/* ==============================================================================
+   CANVAS DE POWER BI (LIENZO)
+   ============================================================================== */
+.pbi-main-canvas {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 14px 20px 40px;
+}
+
+.pbi-canvas-page {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Título de Sección / Página */
+.pbi-section-title-bar {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+}
+
+.pbi-section-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--pbi-blue);
+  letter-spacing: 0.05em;
+}
+
+.pbi-section-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--pbi-text-primary);
+  margin: 2px 0 0;
+  letter-spacing: -0.01em;
+}
+
+/* Banner Hero */
+.pbi-hero-panel {
+  background: var(--pbi-visual-bg);
+  border: 1px solid var(--pbi-visual-border);
+  padding: 16px 20px;
+  box-shadow: var(--pbi-shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pbi-hero-meta {
+  max-width: 860px;
+}
+
+.pbi-hero-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #004e8c;
+  background: #deecf9;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.pbi-hero-heading {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 6px 0 4px;
+  color: var(--pbi-text-primary);
+}
+
+.pbi-hero-description {
+  font-size: 12.5px;
+  color: var(--pbi-text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.pbi-hero-nav-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Botones estilo Microsoft Fluent UI */
+.pbi-btn-action {
+  background: var(--pbi-blue);
+  color: #ffffff;
+  border: 1px solid var(--pbi-blue);
+  padding: 6px 14px;
+  font-family: var(--pbi-font);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.1s ease;
+}
+
+.pbi-btn-action:hover {
+  background: #005a9e;
+}
+
+.pbi-btn-secondary {
+  background: var(--pbi-visual-bg);
+  color: var(--pbi-text-primary);
+  border: 1px solid var(--pbi-visual-border);
+  padding: 6px 14px;
+  font-family: var(--pbi-font);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.pbi-btn-secondary:hover {
+  background: #f3f2f1;
+}
+
+.pbi-link-btn {
+  background: transparent;
+  border: none;
+  color: var(--pbi-blue);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.pbi-link-btn:hover {
   text-decoration: underline;
 }
 
-/* Grid System */
-.grid {
+/* ==============================================================================
+   VISUALS DE POWER BI (Contenedores rectangulares con sombra sutil)
+   ============================================================================== */
+.pbi-visual {
+  background: var(--pbi-visual-bg);
+  border: 1px solid var(--pbi-visual-border);
+  box-shadow: var(--pbi-shadow);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+}
+
+.pbi-visual-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #edebe9;
+}
+
+.pbi-visual-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--pbi-text-primary);
+  margin: 0;
+}
+
+.pbi-visual-subtitle {
+  font-size: 11px;
+  color: var(--pbi-text-secondary);
+  display: block;
+}
+
+.pbi-visual-body {
+  flex: 1;
+}
+
+.pbi-visual-footer {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid #edebe9;
+  font-size: 11px;
+  color: var(--pbi-text-muted);
+}
+
+/* Visual Card de Power BI (Tarjeta de Valor Grande) */
+.pbi-visual-card {
+  position: relative;
+  padding: 12px 16px;
+}
+
+.pbi-card-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.pbi-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.pbi-card-value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--pbi-text-primary);
+  line-height: 1.15;
+  font-family: var(--pbi-font);
+}
+
+.pbi-card-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--pbi-text-secondary);
+  margin-top: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.pbi-card-sub {
+  font-size: 11px;
+  color: var(--pbi-text-muted);
+  margin-top: 2px;
+}
+
+/* Grillas de Visuales */
+.pbi-cards-grid {
   display: grid;
-  gap: 16px;
+  gap: 10px;
+}
+
+.pbi-visuals-grid {
+  display: grid;
+  gap: 10px;
 }
 
 .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
-@media (max-width: 1024px) {
-  .cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px) {
+  .cols-4, .cols-3, .cols-2 { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 640px) {
-  .cols-4, .cols-3, .cols-2 { grid-template-columns: minmax(0, 1fr); }
+/* ==============================================================================
+   SLICERS (SEGMENTADORES) DE POWER BI
+   ============================================================================== */
+.pbi-slicer-bar {
+  background: var(--pbi-visual-bg);
+  border: 1px solid var(--pbi-visual-border);
+  padding: 8px 14px;
+  box-shadow: var(--pbi-shadow);
+  border-radius: 2px;
 }
 
-/* Tarjetas KPI tipo Power BI */
-.pbi-kpi-card {
-  background: var(--pbi-surface);
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius);
-  padding: 16px 20px;
-  box-shadow: var(--pbi-shadow-sm);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-top-width: 4px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.pbi-kpi-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--pbi-shadow-md);
-}
-
-.kpi-primario { border-top-color: var(--pbi-accent); }
-.kpi-exito { border-top-color: var(--pbi-success); }
-.kpi-alerta { border-top-color: var(--pbi-warning); }
-.kpi-peligro { border-top-color: var(--pbi-danger); }
-
-.pbi-kpi-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-.pbi-kpi-etiqueta {
-  font-size: 11.5px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--pbi-text-sub);
-}
-
-.pbi-kpi-icono {
-  font-size: 18px;
-}
-
-.pbi-kpi-valor {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--pbi-text-main);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-}
-
-.pbi-kpi-sub {
-  font-size: 11.5px;
-  color: var(--pbi-text-muted);
-  margin-top: 4px;
-}
-
-/* Visual Tile Card */
-.pbi-card {
-  background: var(--pbi-surface);
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius);
-  padding: 18px 20px;
-  box-shadow: var(--pbi-shadow-sm);
-  display: flex;
-  flex-direction: column;
-}
-
-.pbi-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.pbi-card-title {
-  font-size: 14.5px;
-  font-weight: 700;
-  color: var(--pbi-text-main);
-  margin: 0;
-}
-
-.pbi-card-subtitle {
-  font-size: 12px;
-  color: var(--pbi-text-sub);
-  margin: 2px 0 0;
-}
-
-.pbi-card-body {
-  flex: 1;
-}
-
-.pbi-card-footer {
-  margin-top: 14px;
-  padding-top: 10px;
-  border-top: 1px solid var(--pbi-border);
-  font-size: 11.5px;
-  color: var(--pbi-text-muted);
-}
-
-.pbi-badge {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 2px 8px;
-  background: var(--pbi-surface-alt);
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius-sm);
-  color: var(--pbi-text-sub);
-}
-
-/* Slicer / Segmentadores de Power BI */
-.pbi-slicer {
+.pbi-slicer-container {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-.pbi-slicer-label {
-  font-size: 12px;
+.pbi-slicer-title {
+  font-size: 11.5px;
   font-weight: 700;
-  color: var(--pbi-text-sub);
+  color: var(--pbi-text-secondary);
   text-transform: uppercase;
 }
 
-.pbi-slicer-items {
+.pbi-slicer-list {
   display: flex;
-  gap: 6px;
+  gap: 4px;
   flex-wrap: wrap;
 }
 
-.pbi-slicer-btn {
-  background: var(--pbi-surface);
-  border: 1px solid var(--pbi-border);
-  color: var(--pbi-text-sub);
-  padding: 5px 12px;
-  border-radius: var(--pbi-radius-full);
-  font-size: 12px;
-  font-weight: 600;
+.pbi-slicer-item {
+  background: #f3f2f1;
+  border: 1px solid #d2d0ce;
+  color: var(--pbi-text-primary);
+  font-family: var(--pbi-font);
+  font-size: 11.5px;
+  padding: 3px 10px;
+  border-radius: 2px;
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.1s ease;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 4px;
 }
 
-.pbi-slicer-btn:hover {
-  background: var(--pbi-surface-hover);
-  color: var(--pbi-text-main);
+.pbi-slicer-item:hover {
+  background: #edebe9;
+  border-color: #a19f9d;
 }
 
-.pbi-slicer-btn.activo {
-  background: var(--pbi-accent);
-  border-color: var(--pbi-accent);
+.pbi-slicer-item.activo {
+  background: var(--pbi-blue);
   color: #ffffff;
-  box-shadow: 0 1px 3px rgba(0, 120, 212, 0.3);
+  border-color: var(--pbi-blue);
+  font-weight: 600;
 }
 
 .pbi-slicer-count {
   font-size: 10px;
-  padding: 1px 5px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: var(--pbi-radius-full);
+  opacity: 0.8;
 }
 
-/* Avisos */
-.pbi-aviso {
-  display: flex;
-  gap: 12px;
-  padding: 14px 18px;
-  border-radius: var(--pbi-radius);
-  font-size: 13px;
-  line-height: 1.5;
-  border: 1px solid transparent;
-}
-
-.aviso-info {
-  background: var(--pbi-info-bg);
-  border-color: #bae6fd;
-  color: #0369a1;
-}
-
-.aviso-alerta {
-  background: var(--pbi-warning-bg);
-  border-color: #fde68a;
-  color: #92400e;
-}
-
-.aviso-peligro {
-  background: var(--pbi-danger-bg);
-  border-color: #fecaca;
-  color: #b91c1c;
-}
-
-.aviso-exito {
-  background: var(--pbi-success-bg);
-  border-color: #a7f3d0;
-  color: #065f46;
-}
-
-.pbi-aviso-icono {
-  font-size: 18px;
-}
-
-/* Citas */
-.pbi-cita {
-  margin: 8px 0;
-  padding: 10px 14px;
-  background: var(--pbi-surface-alt);
-  border-left: 3px solid var(--pbi-accent);
-  border-radius: 0 var(--pbi-radius) var(--pbi-radius) 0;
-  font-size: 13px;
-}
-
-.pbi-cita-texto {
-  font-style: italic;
-  color: var(--pbi-text-main);
-}
-
-.pbi-cita-meta {
-  margin-top: 4px;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.pbi-cita-fuente {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--pbi-accent);
-}
-
-/* Pills de Estado */
-.pbi-pill {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: var(--pbi-radius-full);
-  font-size: 11px;
-  font-weight: 700;
-  text-align: center;
-}
-
-.pill-si { background: var(--pbi-success-bg); color: var(--pbi-success); }
-.pill-no { background: var(--pbi-surface-alt); color: var(--pbi-text-muted); }
-.pill-alerta { background: var(--pbi-warning-bg); color: var(--pbi-warning); }
-.pill-peligro { background: var(--pbi-danger-bg); color: var(--pbi-danger); }
-.pill-normal { background: var(--pbi-surface-alt); color: var(--pbi-text-sub); }
-
-/* Módulo Preguntas de Negocio */
-.pbi-question-card {
-  background: var(--pbi-surface);
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius-lg);
-  padding: 24px;
-  box-shadow: var(--pbi-shadow-sm);
-  margin-bottom: 24px;
-}
-
-.pbi-question-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.pbi-q-badge {
-  background: var(--pbi-primary);
-  color: #ffffff;
-  font-size: 11.5px;
-  font-weight: 750;
-  padding: 4px 10px;
-  border-radius: var(--pbi-radius-sm);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.pbi-q-mini-badge {
-  font-weight: 800;
-  color: var(--pbi-accent);
-}
-
-.pbi-question-header h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 750;
-  color: var(--pbi-text-main);
-  letter-spacing: -0.01em;
-}
-
-.pbi-answer-box {
-  background: var(--pbi-accent-light);
-  border: 1px solid var(--pbi-border);
-  border-left: 4px solid var(--pbi-accent);
-  border-radius: var(--pbi-radius);
-  padding: 16px 20px;
-  margin-bottom: 18px;
-}
-
-.pbi-answer-label {
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  color: var(--pbi-accent);
-  margin-bottom: 6px;
-}
-
-.pbi-answer-box p {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.55;
-  color: var(--pbi-text-main);
-}
-
-/* Tablas Power BI */
-.tabla-wrap {
+/* ==============================================================================
+   TABLAS Y MATRICES CON FORMATO CONDICIONAL (DATA BARS) DE POWER BI
+   ============================================================================== */
+.pbi-table-wrapper {
   overflow-x: auto;
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius);
-  background: var(--pbi-surface);
+  border: 1px solid var(--pbi-visual-border);
+  background: var(--pbi-visual-bg);
 }
 
-.pbi-tabla {
+.pbi-table-search-bar {
+  padding: 6px 10px;
+  background: #f8f8f8;
+  border-bottom: 1px solid var(--pbi-visual-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pbi-matrix-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 12px;
   text-align: left;
 }
 
-.pbi-tabla th {
-  background: var(--pbi-surface-alt);
-  color: var(--pbi-text-sub);
-  font-weight: 700;
-  font-size: 11.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--pbi-border);
-  white-space: nowrap;
+.pbi-matrix-table th {
+  background-color: #edebe9;
+  color: var(--pbi-text-primary);
+  font-weight: 600;
+  padding: 6px 10px;
+  border-bottom: 1px solid #d2d0ce;
+  font-size: 11px;
 }
 
-.pbi-tabla td {
-  padding: 10px 14px;
-  border-bottom: 1px solid var(--pbi-border);
-  color: var(--pbi-text-main);
+.pbi-matrix-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid #edebe9;
+  color: var(--pbi-text-primary);
 }
 
-.pbi-tabla tr:last-child td {
-  border-bottom: none;
+.pbi-matrix-table tr:hover {
+  background-color: #f3f2f1;
 }
 
-.pbi-tabla tr:hover {
-  background: var(--pbi-surface-hover);
-}
-
-.pbi-tabla th.num, .pbi-tabla td.num {
+.pbi-matrix-table th.num, .pbi-matrix-table td.num {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-.pbi-paginacion {
+/* Barras de datos en celdas (Power BI Data Bars) */
+.td-data-bar {
+  position: relative;
+  padding: 3px 8px !important;
+}
+
+.pbi-bar-container {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.pbi-bar-fill {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  right: 0;
+  opacity: 0.25;
+  border-radius: 1px;
+}
+
+.pbi-bar-label {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+  font-size: 11.5px;
+}
+
+.pbi-table-pagination {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 4px 0;
+  padding: 6px 10px;
+  background: #f8f8f8;
+  border-top: 1px solid var(--pbi-visual-border);
 }
 
 .pbi-pag-btn {
-  background: var(--pbi-surface);
-  border: 1px solid var(--pbi-border);
-  color: var(--pbi-text-main);
-  padding: 6px 14px;
-  border-radius: var(--pbi-radius);
-  font-size: 12.5px;
-  font-weight: 600;
+  background: var(--pbi-visual-bg);
+  border: 1px solid var(--pbi-visual-border);
+  padding: 3px 10px;
+  font-size: 11px;
+  font-family: var(--pbi-font);
   cursor: pointer;
 }
 
@@ -804,521 +601,564 @@ code, kbd, samp, pre {
   cursor: not-allowed;
 }
 
-.pbi-pag-info {
-  font-size: 12px;
-  color: var(--pbi-text-muted);
+.pbi-pag-text {
+  font-size: 11px;
+  color: var(--pbi-text-secondary);
 }
 
-/* Explorador de Llamadas (Split Layout) */
+/* Callout / Avisos */
+.pbi-callout {
+  border: 1px solid #d2d0ce;
+  border-left-width: 4px;
+  padding: 10px 14px;
+  background: #ffffff;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+.callout-info { border-left-color: var(--pbi-blue); background: #f0f7fd; }
+.callout-alerta { border-left-color: var(--pbi-orange); background: #fffbf5; }
+.callout-peligro { border-left-color: var(--pbi-red); background: #fdf3f2; }
+.callout-exito { border-left-color: var(--pbi-green); background: #f3faf5; }
+
+.pbi-callout-title {
+  font-weight: 700;
+  margin-bottom: 3px;
+  color: var(--pbi-text-primary);
+}
+
+/* ==============================================================================
+   SECCIONES DE PREGUNTAS DE NEGOCIO (FORMATO POWER BI)
+   ============================================================================== */
+.pbi-section-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--pbi-visual-border);
+}
+
+.pbi-executive-summary-card {
+  background: #ffffff;
+  border: 1px solid var(--pbi-visual-border);
+  border-left: 4px solid #004e8c;
+  padding: 12px 16px;
+  box-shadow: var(--pbi-shadow);
+}
+
+.summary-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #004e8c;
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
+}
+
+.summary-text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--pbi-text-primary);
+}
+
+.summary-subtext {
+  margin: 6px 0 0;
+  font-size: 11.5px;
+  color: var(--pbi-text-secondary);
+}
+
+.pbi-evidence-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pbi-evidence-item {
+  padding: 6px 10px;
+  background: #f8f8f8;
+  border-left: 3px solid var(--pbi-blue);
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+
+.evidence-motivo {
+  font-weight: 700;
+  font-size: 10.5px;
+  color: var(--pbi-blue);
+  text-transform: uppercase;
+}
+
+.evidence-quote {
+  font-style: italic;
+  color: var(--pbi-text-primary);
+}
+
+.pbi-rec-text {
+  font-size: 11.5px;
+  color: #004e8c;
+}
+
+/* Status cell */
+.pbi-status-cell {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 2px;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.status-ok { background: #dff6dd; color: #107c41; }
+.status-warn { background: #fff4ce; color: #795b00; }
+.status-danger { background: #fde7e9; color: #a80000; }
+
+/* ==============================================================================
+   EXPLORADOR DE CASOS (Power BI Analytics Matrix)
+   ============================================================================== */
 .pbi-filters-panel {
+  background: var(--pbi-visual-bg);
+  border: 1px solid var(--pbi-visual-border);
+  padding: 8px 14px;
   display: flex;
   gap: 16px;
   align-items: center;
-  background: var(--pbi-surface);
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius);
-  padding: 14px 18px;
-  box-shadow: var(--pbi-shadow-sm);
   flex-wrap: wrap;
+  box-shadow: var(--pbi-shadow);
 }
 
-.pbi-input-search {
-  background: var(--pbi-surface-alt);
-  border: 1px solid var(--pbi-border);
-  color: var(--pbi-text-main);
-  padding: 8px 14px;
-  border-radius: var(--pbi-radius);
-  font-size: 13px;
-  width: 280px;
+.pbi-filter-input-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.pbi-input-search:focus {
+.pbi-filter-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--pbi-text-secondary);
+}
+
+.pbi-input-text {
+  border: 1px solid #d2d0ce;
+  padding: 4px 8px;
+  font-family: var(--pbi-font);
+  font-size: 12px;
+  border-radius: 2px;
+  width: 220px;
+}
+
+.pbi-input-text:focus {
   outline: none;
-  border-color: var(--pbi-accent);
-  box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.2);
+  border-color: var(--pbi-blue);
 }
 
-.pbi-explorer-layout {
+.pbi-explorer-grid {
   display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 20px;
-  margin-top: 14px;
+  grid-template-columns: 1fr 360px;
+  gap: 12px;
 }
 
-@media (max-width: 1100px) {
-  .pbi-explorer-layout { grid-template-columns: 1fr; }
+@media (max-width: 1050px) {
+  .pbi-explorer-grid { grid-template-columns: 1fr; }
 }
 
-.pbi-table-summary {
-  font-size: 12.5px;
-  color: var(--pbi-text-sub);
-  margin-bottom: 8px;
+.pbi-table-toolbar-info {
+  font-size: 11.5px;
+  color: var(--pbi-text-secondary);
+  margin-bottom: 4px;
 }
 
-.pbi-row-selectable {
-  cursor: pointer;
-  transition: background 0.1s ease;
-}
-
-.pbi-row-selectable.fila-activa {
-  background: var(--pbi-accent-light) !important;
-  border-left: 3px solid var(--pbi-accent);
-}
-
-.pbi-summary-clamp {
+.table-clamp-text {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 12.5px;
+  font-size: 11.5px;
 }
 
-.pbi-tag-motivo {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--pbi-text-sub);
-}
-
-.pbi-score-danger {
-  color: var(--pbi-danger);
-  font-weight: 750;
-}
-
-.pbi-score-success {
-  color: var(--pbi-success);
-  font-weight: 750;
-}
-
-.pbi-score-mid {
-  color: var(--pbi-warning);
-  font-weight: 750;
-}
-
-/* Panel Lateral de Detalle */
-.pbi-detail-section {
-  margin-bottom: 14px;
-}
-
-.pbi-detail-label {
+.pbi-motivo-tag {
   font-size: 10.5px;
-  font-weight: 800;
+  font-weight: 600;
+  color: var(--pbi-text-secondary);
+}
+
+.row-selected {
+  background-color: #deecf9 !important;
+  outline: 1px solid var(--pbi-blue);
+}
+
+/* Panel de Detalle Lateral */
+.pbi-detail-block {
+  margin-bottom: 10px;
+}
+
+.detail-header-label {
+  font-size: 10px;
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--pbi-text-muted);
-  letter-spacing: 0.05em;
-  margin-bottom: 4px;
+  color: var(--pbi-text-secondary);
+  margin-bottom: 2px;
 }
 
-.pbi-detail-text {
-  font-size: 13px;
-  line-height: 1.5;
+.detail-body-text {
   margin: 0;
+  font-size: 12px;
+  line-height: 1.45;
 }
 
-.pbi-detail-grid {
+.pbi-detail-meta-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 14px;
-  font-size: 12px;
+  gap: 6px;
+  padding: 8px 0;
+  border-top: 1px solid #edebe9;
+  border-bottom: 1px solid #edebe9;
+  font-size: 11.5px;
 }
 
-.pbi-detail-k {
-  color: var(--pbi-text-sub);
+.pbi-factors-chips {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.pbi-chip-danger {
+  background: #fde7e9;
+  color: #a80000;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+
+.pbi-rec-quote {
+  background: #f8f8f8;
+  border-left: 3px solid var(--pbi-orange);
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* ==============================================================================
+   COPILOTO RAG INTERACTIVO
+   ============================================================================== */
+.pbi-rag-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pbi-rag-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pbi-rag-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--pbi-text-secondary);
+}
+
+.pbi-case-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pbi-case-btn {
+  background: #f8f8f8;
+  border: 1px solid #d2d0ce;
+  padding: 5px 8px;
+  text-align: left;
+  font-family: var(--pbi-font);
+  font-size: 11.5px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.pbi-case-btn:hover {
+  background: #edebe9;
+}
+
+.pbi-case-btn.active {
+  background: #deecf9;
+  border-color: var(--pbi-blue);
   font-weight: 600;
 }
 
-.pbi-detail-v {
-  color: var(--pbi-text-main);
+.pbi-textarea {
+  border: 1px solid #d2d0ce;
+  padding: 6px 8px;
+  font-family: var(--pbi-font);
+  font-size: 12px;
+  border-radius: 2px;
+  resize: vertical;
 }
 
-.pbi-factor-tags {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+.pbi-select {
+  width: 100%;
+  border: 1px solid #d2d0ce;
+  padding: 4px 8px;
+  font-family: var(--pbi-font);
+  font-size: 12px;
+  border-radius: 2px;
+  background: #ffffff;
 }
 
-.pbi-tag-error {
+.pbi-rag-grid-params {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.pbi-input-hint {
   font-size: 10.5px;
-  font-weight: 700;
-  padding: 2px 8px;
-  background: var(--pbi-danger-bg);
-  color: var(--pbi-danger);
-  border-radius: var(--pbi-radius-sm);
+  color: var(--pbi-text-muted);
+  margin-top: 2px;
 }
 
-.pbi-rec-box {
-  background: var(--pbi-surface-alt);
-  border-left: 3px solid #d97706;
-  padding: 10px 14px;
-  border-radius: 0 var(--pbi-radius) var(--pbi-radius) 0;
-  font-size: 12.5px;
-  color: var(--pbi-text-main);
-  line-height: 1.45;
-}
-
-.pbi-placeholder-card {
-  height: 320px;
-  border: 2px dashed var(--pbi-border);
-  border-radius: var(--pbi-radius);
+.pbi-rag-output-box {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 24px;
-  color: var(--pbi-text-muted);
-}
-
-/* Diagrama de Flujo RAG */
-.pbi-rag-flow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   gap: 10px;
-  overflow-x: auto;
-  padding: 20px 8px;
 }
 
-.pbi-rag-node {
-  flex: 1;
-  min-width: 140px;
-  background: var(--pbi-surface-alt);
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius);
-  padding: 16px 12px;
-  text-align: center;
-  box-shadow: var(--pbi-shadow-sm);
-  transition: transform 0.15s ease;
+.output-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
-.pbi-rag-node:hover {
-  transform: translateY(-3px);
-  border-color: var(--pbi-accent);
+.output-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--pbi-text-secondary);
 }
 
-.pbi-rag-node-icon {
-  font-size: 24px;
-  margin-bottom: 6px;
+.output-value-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--pbi-blue);
 }
 
-.pbi-rag-node-title {
+.output-text-bold {
   font-size: 12px;
-  font-weight: 750;
-  color: var(--pbi-text-main);
+  font-weight: 600;
+  color: var(--pbi-text-primary);
+}
+
+.output-text-legal {
+  font-size: 11.5px;
+  color: var(--pbi-green);
+  font-weight: 600;
+}
+
+.output-main-card {
+  background: #f0f7fd;
+  border: 1px solid #c7e0f4;
+  border-left: 4px solid var(--pbi-blue);
+  padding: 12px 14px;
+}
+
+.output-main-header {
+  font-size: 11px;
+  font-weight: 700;
+  color: #004e8c;
+  text-transform: uppercase;
   margin-bottom: 4px;
 }
 
-.pbi-rag-node-desc {
-  font-size: 11px;
-  color: var(--pbi-text-sub);
-  line-height: 1.35;
+.output-main-body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--pbi-text-primary);
 }
 
-.pbi-rag-arrow {
-  font-size: 20px;
-  color: var(--pbi-accent);
-  font-weight: 700;
+.output-main-footer {
+  margin-top: 8px;
+  font-size: 10.5px;
+  color: #004e8c;
 }
 
-/* Timeline Fases */
-.pbi-timeline {
+.output-actions {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.pbi-timeline-step {
-  display: flex;
-  gap: 14px;
-  padding: 10px 14px;
-  border-radius: var(--pbi-radius);
-  border: 1px solid var(--pbi-border);
-  background: var(--pbi-surface-alt);
-  cursor: pointer;
-  transition: all 0.15s ease;
-}
-
-.pbi-timeline-step:hover {
-  border-color: var(--pbi-accent);
-}
-
-.pbi-timeline-step.paso-activo {
-  border-color: var(--pbi-accent);
-  background: var(--pbi-accent-light);
-}
-
-.pbi-step-num {
-  width: 28px;
-  height: 28px;
-  background: var(--pbi-accent);
-  color: #ffffff;
-  border-radius: var(--pbi-radius-full);
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-weight: 800;
-  font-size: 13px;
-  flex-shrink: 0;
 }
 
-.pbi-step-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--pbi-text-main);
-  margin-bottom: 2px;
+.output-status-ok {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--pbi-green);
 }
 
-.pbi-step-desc {
-  font-size: 12px;
-  color: var(--pbi-text-sub);
-  line-height: 1.4;
-}
-
-.pbi-eval-list {
-  display: flex;
-  flex-direction: column;
+.pbi-arch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
 }
 
-.pbi-eval-item {
-  background: var(--pbi-surface-alt);
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius);
-  padding: 10px 14px;
+@media (max-width: 900px) {
+  .pbi-arch-grid { grid-template-columns: 1fr; }
 }
 
-.pbi-eval-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2px;
+.pbi-arch-item {
+  background: #f8f8f8;
+  border: 1px solid #e1dfdd;
+  padding: 10px 12px;
+  border-radius: 2px;
 }
 
-.pbi-eval-name {
-  font-size: 12.5px;
+.pbi-arch-title {
+  font-size: 12px;
   font-weight: 700;
-  color: var(--pbi-text-main);
+  color: var(--pbi-blue);
+  margin-bottom: 4px;
 }
 
-.pbi-eval-target {
+.pbi-arch-desc {
+  margin: 0;
   font-size: 11px;
-  font-weight: 800;
-  padding: 2px 6px;
-  background: var(--pbi-success-bg);
-  color: var(--pbi-success);
-  border-radius: var(--pbi-radius-sm);
-}
-
-.pbi-eval-desc {
-  margin: 0;
-  font-size: 11.5px;
-  color: var(--pbi-text-sub);
-}
-
-.pbi-mini-box {
-  background: var(--pbi-surface-alt);
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius);
-  padding: 14px;
-}
-
-.pbi-mini-box h4 {
-  margin: 0 0 6px;
-  font-size: 13px;
-  font-weight: 750;
-  color: var(--pbi-accent);
-}
-
-.pbi-mini-box p {
-  margin: 0;
-  font-size: 12px;
-  color: var(--pbi-text-sub);
-  line-height: 1.45;
-}
-
-/* Matriz de Recomendaciones */
-.pbi-matrix-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-}
-
-@media (max-width: 1024px) {
-  .pbi-matrix-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
-.pbi-matrix-card {
-  background: var(--pbi-surface-alt);
-  border: 1px solid var(--pbi-border);
-  border-left-width: 4px;
-  border-radius: var(--pbi-radius);
-  padding: 16px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.pbi-matrix-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--pbi-shadow);
-}
-
-.pbi-matrix-card-active {
-  background: var(--pbi-accent-light);
-  border-color: var(--pbi-accent);
-  box-shadow: var(--pbi-shadow-md);
-}
-
-.pbi-matrix-badge {
-  font-size: 10.5px;
-  font-weight: 800;
-  padding: 2px 8px;
-  border-radius: var(--pbi-radius-sm);
-  display: inline-block;
-  margin-bottom: 8px;
-}
-
-.pbi-matrix-title {
-  font-size: 13.5px;
-  font-weight: 750;
-  margin: 0 0 8px;
-  color: var(--pbi-text-main);
-  line-height: 1.35;
-}
-
-.pbi-matrix-desc {
-  font-size: 12px;
-  color: var(--pbi-text-sub);
-  margin: 0 0 12px;
+  color: var(--pbi-text-secondary);
   line-height: 1.4;
 }
 
-.pbi-matrix-btn {
-  font-size: 11.5px;
-  font-weight: 700;
-  color: var(--pbi-accent);
-}
-
-.pbi-rec-col {
+/* ==============================================================================
+   INICIATIVAS Y RECOMENDACIONES
+   ============================================================================== */
+.pbi-ini-card {
+  background: #f8f8f8;
+  border: 1px solid var(--pbi-visual-border);
+  border-top-width: 3px;
+  padding: 10px 12px;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
+  transition: all 0.1s ease;
 }
 
-.pbi-rec-label {
-  font-size: 11px;
-  font-weight: 800;
+.pbi-ini-card:hover {
+  background: #edebe9;
+}
+
+.pbi-ini-card.active {
+  background: #deecf9;
+  border-color: var(--pbi-blue);
+}
+
+.ini-priority {
+  font-size: 9.5px;
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--pbi-text-muted);
-  margin-bottom: 6px;
-  letter-spacing: 0.05em;
+  color: var(--pbi-text-secondary);
 }
 
-.pbi-rec-box-info {
-  background: var(--pbi-surface-alt);
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius);
-  padding: 12px 14px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--pbi-text-main);
-  flex: 1;
-}
-
-.pbi-rec-box-action {
-  background: var(--pbi-accent-light);
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius);
-  padding: 12px 14px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--pbi-text-main);
-  flex: 1;
-}
-
-.pbi-rec-box-kpi {
-  background: var(--pbi-success-bg);
-  border: 1px solid #a7f3d0;
-  border-radius: var(--pbi-radius);
-  padding: 12px 14px;
-  font-size: 13px;
+.ini-title {
+  font-size: 12.5px;
   font-weight: 700;
-  line-height: 1.5;
-  color: var(--pbi-success);
-  flex: 1;
+  margin: 4px 0 6px;
+  color: var(--pbi-text-primary);
 }
 
-.pbi-check-list {
-  margin: 0;
-  padding-left: 20px;
+.ini-desc {
+  font-size: 11px;
+  color: var(--pbi-text-secondary);
+  margin: 0 0 8px;
+  line-height: 1.35;
+}
+
+.ini-link {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--pbi-blue);
+  margin-top: auto;
+}
+
+.pbi-detail-box {
+  background: #f8f8f8;
+  border: 1px solid #e1dfdd;
+  padding: 10px 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--pbi-text-main);
+  gap: 4px;
 }
 
-.pbi-formula-box {
-  background: var(--pbi-surface-alt);
-  border: 1px dashed var(--pbi-border);
-  border-radius: var(--pbi-radius);
-  padding: 12px;
-  font-size: 12.5px;
-  overflow-x: auto;
+.box-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--pbi-text-secondary);
 }
 
-.pbi-limitaciones-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-@media (max-width: 768px) {
-  .pbi-limitaciones-grid { grid-template-columns: 1fr; }
-}
-
-.pbi-limitacion-item {
-  display: flex;
-  gap: 12px;
-  background: var(--pbi-surface-alt);
-  border: 1px solid var(--pbi-border);
-  border-radius: var(--pbi-radius);
-  padding: 12px 16px;
-}
-
-.pbi-lim-num {
-  font-size: 16px;
-  font-weight: 800;
-  color: var(--pbi-accent);
-}
-
-.pbi-lim-text {
+.box-content {
   margin: 0;
-  font-size: 12.5px;
-  color: var(--pbi-text-main);
+  font-size: 12px;
   line-height: 1.45;
 }
 
-/* Footer */
-.pbi-footer {
-  background: var(--pbi-surface);
-  border-top: 1px solid var(--pbi-border);
-  padding: 16px 24px;
+.pbi-clean-list {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
   font-size: 12px;
-  color: var(--pbi-text-sub);
 }
 
-.pbi-footer-inner {
-  max-width: var(--pbi-container);
-  margin: 0 auto;
+.pbi-code-box {
+  background: #f8f8f8;
+  border: 1px solid #d2d0ce;
+  padding: 8px 10px;
+}
+
+.pbi-table-footer-note {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--pbi-text-secondary);
+}
+
+.pbi-limitaciones-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pbi-limitacion-row {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  padding: 6px 10px;
+  background: #f8f8f8;
+  border-left: 3px solid #a19f9d;
+}
+
+.lim-index {
+  font-weight: 700;
+  color: var(--pbi-blue);
+}
+
+/* Barra de Estado Inferior */
+.pbi-bottom-statusbar {
+  background: var(--pbi-bar-top-bg);
+  color: #a19f9d;
+  border-top: 1px solid #3b3a39;
+  padding: 6px 20px;
+  font-size: 11px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
   flex-wrap: wrap;
 }
 
-.pbi-footer-left {
-  max-width: 800px;
+.pbi-sep {
+  margin: 0 8px;
+  color: #605e5c;
 }

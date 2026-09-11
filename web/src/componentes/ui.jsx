@@ -8,137 +8,78 @@ import {
   ResponsiveContainer,
   Cell,
   LabelList,
-  PieChart,
-  Pie,
 } from "recharts";
 
-// Paleta corporativa Power BI / Stitch (Deep Trust Navy, Cobalt, Emerald, Amber, Rose)
-export const PALETA = {
-  primario: "#0a2540",
-  secundario: "#0078d4",
-  acento: "#0284c7",
-  acentoClaro: "#e0f2fe",
-  exito: "#059669",
-  alerta: "#d97706",
-  peligro: "#dc2626",
-  neutro: "#64748b",
-  fondoGrafico: "#f8fafc",
-  colores: [
-    "#0078d4",
-    "#0284c7",
-    "#0d9488",
-    "#10b981",
-    "#f59e0b",
-    "#6366f1",
-    "#8b5cf6",
-    "#ec4899",
-    "#64748b",
-  ],
+// Paleta oficial predeterminada de Microsoft Power BI
+export const PALETA_PBI = {
+  azul1: "#118DFF",
+  azul2: "#12239E",
+  morado: "#5C2D91",
+  cian: "#00B4D8",
+  verde: "#059669",
+  naranja: "#E66C37",
+  rojo: "#D83B01",
+  gris: "#605E5C",
+  borde: "#E1DFDD",
+  fondoVisual: "#FFFFFF",
+  fondoCanvas: "#F3F2F1",
 };
 
-/** Tarjeta KPI estilo Power BI */
-export function Kpi({ valor, etiqueta, subtitulo, estado = "normal", icono }) {
-  const bordeClase =
-    estado === "exito"
-      ? "kpi-exito"
-      : estado === "alerta"
-      ? "kpi-alerta"
-      : estado === "peligro"
-      ? "kpi-peligro"
-      : "kpi-primario";
-
+/** Visual Card de Power BI (Tarjeta de valor único) */
+export function PbiCard({ valor, titulo, subtitulo, indicadorColor }) {
   return (
-    <div className={`pbi-kpi-card ${bordeClase}`}>
-      <div className="pbi-kpi-top">
-        <span className="pbi-kpi-etiqueta">{etiqueta}</span>
-        {icono && <span className="pbi-kpi-icono">{icono}</span>}
+    <div className="pbi-visual pbi-visual-card">
+      {indicadorColor && (
+        <div className="pbi-card-indicator" style={{ backgroundColor: indicadorColor }} />
+      )}
+      <div className="pbi-card-content">
+        <div className="pbi-card-value">{valor}</div>
+        <div className="pbi-card-title">{titulo}</div>
+        {subtitulo && <div className="pbi-card-sub">{subtitulo}</div>}
       </div>
-      <div className="pbi-kpi-valor">{valor}</div>
-      {subtitulo && <div className="pbi-kpi-sub">{subtitulo}</div>}
     </div>
   );
 }
 
-/** Contenedor Visual estilo Power BI Tile */
-export function Card({ titulo, subtitulo, children, nota, badge, accion }) {
+/** Visual Container genérico de Power BI (Contenedor con barra de título sobria) */
+export function PbiVisual({ titulo, subtitulo, children, accion, pie }) {
   return (
-    <div className="pbi-card">
-      {(titulo || badge || accion) && (
-        <div className="pbi-card-header">
-          <div>
-            {titulo && <h3 className="pbi-card-title">{titulo}</h3>}
-            {subtitulo && <p className="pbi-card-subtitle">{subtitulo}</p>}
+    <div className="pbi-visual">
+      {(titulo || accion) && (
+        <div className="pbi-visual-header">
+          <div className="pbi-visual-title-box">
+            {titulo && <h3 className="pbi-visual-title">{titulo}</h3>}
+            {subtitulo && <span className="pbi-visual-subtitle">{subtitulo}</span>}
           </div>
-          <div className="pbi-card-actions">
-            {badge && <span className="pbi-badge">{badge}</span>}
-            {accion}
-          </div>
+          {accion && <div className="pbi-visual-action">{accion}</div>}
         </div>
       )}
-      <div className="pbi-card-body">{children}</div>
-      {nota && <div className="pbi-card-footer">{nota}</div>}
+      <div className="pbi-visual-body">{children}</div>
+      {pie && <div className="pbi-visual-footer">{pie}</div>}
     </div>
   );
 }
 
-/** Aviso metodológico o alerta */
-export function Aviso({ children, tipo = "info" }) {
-  const icono =
-    tipo === "peligro" ? "⚠️" : tipo === "alerta" ? "⚡" : tipo === "exito" ? "✓" : "ℹ️";
+/** Segmentador / Slicer estilo Power BI (Lista de opciones sobria con radio o botón) */
+export function PbiSlicer({ etiqueta, opciones, valorSeleccionado, alCambiar }) {
   return (
-    <div className={`pbi-aviso aviso-${tipo}`}>
-      <span className="pbi-aviso-icono">{icono}</span>
-      <div className="pbi-aviso-texto">{children}</div>
-    </div>
-  );
-}
-
-/** Cita textual con fuente */
-export function Cita({ texto, fuente, etiqueta }) {
-  return (
-    <blockquote className="pbi-cita">
-      <div className="pbi-cita-texto">{texto}</div>
-      {(fuente || etiqueta) && (
-        <div className="pbi-cita-meta">
-          {fuente && <span className="pbi-cita-fuente">{fuente}</span>}
-          {etiqueta && <span className="pbi-cita-tag">{etiqueta}</span>}
-        </div>
-      )}
-    </blockquote>
-  );
-}
-
-/** Pill / Badge de estado */
-export function Pill({ activo, si = "Sí", no = "No", variante }) {
-  let clase = "pbi-pill";
-  if (variante) {
-    clase += ` pill-${variante}`;
-  } else {
-    clase += activo ? " pill-si" : " pill-no";
-  }
-  return <span className={clase}>{typeof activo === "boolean" ? (activo ? si : no) : activo}</span>;
-}
-
-/** Segmentador / Slicer estilo Power BI */
-export function Slicer({ opciones, valorSeleccionado, alCambiar, etiqueta }) {
-  return (
-    <div className="pbi-slicer">
-      {etiqueta && <span className="pbi-slicer-label">{etiqueta}:</span>}
-      <div className="pbi-slicer-items">
+    <div className="pbi-slicer-container">
+      {etiqueta && <span className="pbi-slicer-title">{etiqueta}</span>}
+      <div className="pbi-slicer-list">
         {opciones.map((op) => {
-          const valor = typeof op === "object" ? op.valor : op;
+          const val = typeof op === "object" ? op.valor : op;
           const texto = typeof op === "object" ? op.etiqueta : op;
-          const contador = typeof op === "object" ? op.contador : null;
-          const activo = valorSeleccionado === valor;
+          const cant = typeof op === "object" ? op.contador : null;
+          const activo = valorSeleccionado === val;
           return (
             <button
-              key={valor}
+              key={val}
               type="button"
-              className={`pbi-slicer-btn ${activo ? "activo" : ""}`}
-              onClick={() => alCambiar(valor)}
+              className={`pbi-slicer-item ${activo ? "activo" : ""}`}
+              onClick={() => alCambiar(val)}
             >
-              {texto}
-              {contador != null && <span className="pbi-slicer-count">{contador}</span>}
+              <span className="pbi-slicer-text">{texto}</span>
+              {cant != null && <span className="pbi-slicer-count">({cant})</span>}
             </button>
           );
         })}
@@ -147,173 +88,154 @@ export function Slicer({ opciones, valorSeleccionado, alCambiar, etiqueta }) {
   );
 }
 
-/** Gráfico de Barras Horizontales */
-export function BarrasH({ datos, campo = "n", etiquetaValor, altura, destacar, colorBase }) {
-  const h = altura ?? Math.max(130, datos.length * 36 + 25);
-  const color = colorBase || PALETA.secundario;
-
+/** Gráfico de Barras Horizontales estilo Clustered Bar Chart de Power BI */
+export function PbiBarChart({ datos, campo = "n", altura, color = PALETA_PBI.azul1, sufijo = "" }) {
+  const h = altura ?? Math.max(120, datos.length * 28 + 20);
   return (
-    <ResponsiveContainer width="100%" height={h}>
-      <BarChart
-        data={datos}
-        layout="vertical"
-        margin={{ top: 6, right: 48, bottom: 6, left: 12 }}
-      >
-        <XAxis type="number" hide />
-        <YAxis
-          type="category"
-          dataKey="clave"
-          width={210}
-          tickLine={false}
-          axisLine={false}
-          tick={{ fontSize: 11.5, fill: "var(--pbi-text-sub)" }}
-        />
-        <Tooltip
-          cursor={{ fill: "rgba(0, 120, 212, 0.06)" }}
-          contentStyle={{
-            background: "var(--pbi-surface)",
-            border: "1px solid var(--pbi-border)",
-            borderRadius: 6,
-            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-            fontSize: 12.5,
-          }}
-          formatter={(v) => [etiquetaValor ? `${v}${etiquetaValor}` : v.toLocaleString("es"), campo]}
-        />
-        <Bar dataKey={campo} radius={[0, 4, 4, 0]} barSize={18}>
-          {datos.map((d, i) => (
-            <Cell
-              key={i}
-              fill={destacar && destacar(d) ? PALETA.primario : color}
-            />
-          ))}
-          <LabelList
-            dataKey={campo}
-            position="right"
-            formatter={(v) => (etiquetaValor ? `${v}${etiquetaValor}` : v.toLocaleString("es"))}
-            style={{ fill: "var(--pbi-text-main)", fontSize: 11.5, fontWeight: 600 }}
+    <div style={{ width: "100%", height: h }}>
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart
+          data={datos}
+          layout="vertical"
+          margin={{ top: 2, right: 45, bottom: 2, left: 10 }}
+        >
+          <XAxis type="number" hide />
+          <YAxis
+            type="category"
+            dataKey="clave"
+            width={210}
+            tickLine={false}
+            axisLine={false}
+            tick={{ fontSize: 11, fill: "#252423" }}
           />
-        </Bar>
-      </BarChart>
-    </ResponsiveContainer>
-  );
-}
-
-/** Gráfico Donut para proporciones */
-export function GraficoDonut({ datos, campo = "n", clave = "clave", altura = 220 }) {
-  return (
-    <div style={{ width: "100%", height: altura }}>
-      <ResponsiveContainer>
-        <PieChart>
-          <Pie
-            data={datos}
-            dataKey={campo}
-            nameKey={clave}
-            cx="50%"
-            cy="50%"
-            innerRadius={48}
-            outerRadius={78}
-            paddingAngle={3}
-          >
-            {datos.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={PALETA.colores[index % PALETA.colores.length]} />
-            ))}
-          </Pie>
           <Tooltip
+            cursor={{ fill: "rgba(0, 120, 212, 0.05)" }}
             contentStyle={{
-              background: "var(--pbi-surface)",
-              border: "1px solid var(--pbi-border)",
-              borderRadius: 6,
-              fontSize: 12,
+              background: "#FFFFFF",
+              border: "1px solid #E1DFDD",
+              borderRadius: 2,
+              boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+              fontSize: 11,
+              padding: "6px 10px",
             }}
-            formatter={(val, name) => [`${val.toLocaleString("es")} (${((val / datos.reduce((a, b) => a + b[campo], 0)) * 100).toFixed(1)}%)`, name]}
+            formatter={(val) => [`${val.toLocaleString("es")}${sufijo}`, campo]}
           />
-        </PieChart>
+          <Bar dataKey={campo} fill={color} barSize={15} radius={[0, 1, 1, 0]}>
+            <LabelList
+              dataKey={campo}
+              position="right"
+              formatter={(v) => `${v.toLocaleString("es")}${sufijo}`}
+              style={{ fill: "#323130", fontSize: 10.5, fontWeight: 600 }}
+            />
+          </Bar>
+        </BarChart>
       </ResponsiveContainer>
     </div>
   );
 }
 
-/** Tabla con formato condicional y estilo Power BI */
-export function Tabla({ columnas, filas, filasPorPagina, conBuscador = false }) {
+/** Tabla / Matriz con formato condicional de barras de datos (Data Bars) de Power BI */
+export function PbiTable({ columnas, filas, filasPorPagina = 10, conBuscador = false }) {
   const [pagina, setPagina] = useState(1);
-  const [filtro, setFiltro] = useState("");
+  const [busqueda, setBusqueda] = useState("");
 
-  const filasFiltradas = conBuscador && filtro.trim()
+  const filtradas = conBuscador && busqueda.trim()
     ? filas.filter((f) =>
         Object.values(f).some(
-          (v) => v != null && String(v).toLowerCase().includes(filtro.toLowerCase())
+          (v) => v != null && String(v).toLowerCase().includes(busqueda.toLowerCase())
         )
       )
     : filas;
 
-  const total = filasFiltradas.length;
-  const porPag = filasPorPagina || total;
-  const totalPaginas = Math.max(1, Math.ceil(total / porPag));
-  const inicio = (pagina - 1) * porPag;
-  const fin = inicio + porPag;
-  const filasVisibles = filasPorPagina ? filasFiltradas.slice(inicio, fin) : filasFiltradas;
+  const total = filtradas.length;
+  const totalPaginas = Math.max(1, Math.ceil(total / filasPorPagina));
+  const inicio = (pagina - 1) * filasPorPagina;
+  const visibles = filtradas.slice(inicio, inicio + filasPorPagina);
 
   return (
-    <div className="pbi-tabla-container">
+    <div className="pbi-table-wrapper">
       {conBuscador && (
-        <div className="pbi-tabla-toolbar">
+        <div className="pbi-table-search-bar">
           <input
             type="text"
-            className="pbi-input"
-            placeholder="Filtrar en tabla..."
-            value={filtro}
+            className="pbi-input-text"
+            placeholder="Buscar registros..."
+            value={busqueda}
             onChange={(e) => {
-              setFiltro(e.target.value);
+              setBusqueda(e.target.value);
               setPagina(1);
             }}
           />
-          <span className="pbi-tabla-count">{total} registros</span>
+          <span className="pbi-table-total-count">{total} filas</span>
         </div>
       )}
-      <div className="tabla-wrap">
-        <table className="pbi-tabla">
-          <thead>
+      <table className="pbi-matrix-table">
+        <thead>
+          <tr>
+            {columnas.map((col) => (
+              <th
+                key={col.clave}
+                className={col.num ? "num" : undefined}
+                style={{ width: col.ancho }}
+              >
+                {col.titulo}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {visibles.length === 0 ? (
             <tr>
-              {columnas.map((c) => (
-                <th key={c.clave} className={c.num ? "num" : undefined} style={{ width: c.ancho }}>
-                  {c.titulo}
-                </th>
-              ))}
+              <td colSpan={columnas.length} style={{ textAlign: "center", padding: 16, color: "#605E5C" }}>
+                Sin registros
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {filasVisibles.length === 0 ? (
-              <tr>
-                <td colSpan={columnas.length} style={{ textAlign: "center", padding: 20, color: "var(--pbi-text-sub)" }}>
-                  No se encontraron resultados
-                </td>
-              </tr>
-            ) : (
-              filasVisibles.map((f, i) => (
-                <tr key={i}>
-                  {columnas.map((c) => (
-                    <td key={c.clave} className={c.num ? "num" : undefined}>
-                      {c.render ? c.render(f) : f[c.clave]}
+          ) : (
+            visibles.map((fila, idx) => (
+              <tr key={idx}>
+                {columnas.map((col) => {
+                  if (col.conBarra) {
+                    const pct = Math.min(100, Math.max(0, col.conBarra(fila)));
+                    return (
+                      <td key={col.clave} className="num td-data-bar">
+                        <div className="pbi-bar-container">
+                          <div
+                            className="pbi-bar-fill"
+                            style={{
+                              width: `${pct}%`,
+                              backgroundColor: col.colorBarra || PALETA_PBI.azul1,
+                            }}
+                          />
+                          <span className="pbi-bar-label">
+                            {col.render ? col.render(fila) : fila[col.clave]}
+                          </span>
+                        </div>
+                      </td>
+                    );
+                  }
+                  return (
+                    <td key={col.clave} className={col.num ? "num" : undefined}>
+                      {col.render ? col.render(fila) : fila[col.clave]}
                     </td>
-                  ))}
-                </tr>
-              ))
-            )}
-          </tbody>
-        </table>
-      </div>
-      {filasPorPagina && totalPaginas > 1 && (
-        <div className="pbi-paginacion">
+                  );
+                })}
+              </tr>
+            ))
+          )}
+        </tbody>
+      </table>
+      {totalPaginas > 1 && (
+        <div className="pbi-table-pagination">
           <button
             type="button"
             className="pbi-pag-btn"
             disabled={pagina === 1}
             onClick={() => setPagina((p) => p - 1)}
           >
-            ← Anterior
+            Anterior
           </button>
-          <span className="pbi-pag-info">
-            Página {pagina} de {totalPaginas} ({total} filas)
+          <span className="pbi-pag-text">
+            Página {pagina} de {totalPaginas}
           </span>
           <button
             type="button"
@@ -321,10 +243,20 @@ export function Tabla({ columnas, filas, filasPorPagina, conBuscador = false }) 
             disabled={pagina === totalPaginas}
             onClick={() => setPagina((p) => p + 1)}
           >
-            Siguiente →
+            Siguiente
           </button>
         </div>
       )}
+    </div>
+  );
+}
+
+/** Cuadro de Nota Analítica o Alerta Regulatoria */
+export function PbiCallout({ titulo, children, tipo = "info" }) {
+  return (
+    <div className={`pbi-callout callout-${tipo}`}>
+      {titulo && <div className="pbi-callout-title">{titulo}</div>}
+      <div className="pbi-callout-body">{children}</div>
     </div>
   );
 }
