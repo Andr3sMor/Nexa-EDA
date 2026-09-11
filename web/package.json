@@ -1,0 +1,21 @@
+{
+  "name": "nexa-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Dashboard de Voice of Customer (cobranza) - 1.197 conversaciones de WhatsApp banca-cliente en mora",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.13.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}

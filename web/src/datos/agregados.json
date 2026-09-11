@@ -1,0 +1,1239 @@
+{
+  "meta": {
+    "generado": "2026-09-10",
+    "proveedor": "OpenAI",
+    "modelo": "gpt-4o-mini",
+    "n_conversaciones_corpus": 1197,
+    "n_conversaciones_analizadas": 1197,
+    "cobertura_pct": 100.0,
+    "nota_cobertura": "0 conversaciones (0.0%) no superaron la validacion Pydantic tras 3 reintentos y quedan fuera de los agregados."
+  },
+  "kpis": {
+    "acuerdo_pago_pct": 6.52,
+    "acuerdo_pago_n": 78,
+    "acuerdo_pago_llm_pct": 13.03,
+    "acuerdo_pago_llm_n": 156,
+    "acuerdo_reclasificadas_n": 78,
+    "score_satisfaccion_media": 66.63,
+    "score_satisfaccion_sd": 23.41,
+    "satisfaccion_llm_media": 3.31,
+    "abandono_pct": 17.71,
+    "friccion_bot_pct": 21.64,
+    "reconoce_deuda_pct": 65.58,
+    "asesor_pregunta_motivo_pct": 44.61
+  },
+  "pregunta_a": {
+    "motivo_no_pago": [
+      {
+        "clave": "NINGUNO",
+        "n": 758,
+        "pct": 63.32
+      },
+      {
+        "clave": "INGRESOS_INSUFICIENTES",
+        "n": 139,
+        "pct": 11.61
+      },
+      {
+        "clave": "DESACUERDO_MONTO_O_COBRO",
+        "n": 84,
+        "pct": 7.02
+      },
+      {
+        "clave": "DESCUENTO_NOMINA_NO_APLICADO",
+        "n": 62,
+        "pct": 5.18
+      },
+      {
+        "clave": "DESEMPLEO",
+        "n": 57,
+        "pct": 4.76
+      },
+      {
+        "clave": "ENFERMEDAD_O_CALAMIDAD",
+        "n": 29,
+        "pct": 2.42
+      },
+      {
+        "clave": "OTRO",
+        "n": 21,
+        "pct": 1.75
+      },
+      {
+        "clave": "YA_PAGO_O_PAGO_NO_APLICADO",
+        "n": 15,
+        "pct": 1.25
+      },
+      {
+        "clave": "NO_RECONOCE_LA_OBLIGACION",
+        "n": 14,
+        "pct": 1.17
+      },
+      {
+        "clave": "SOBREENDEUDAMIENTO",
+        "n": 7,
+        "pct": 0.58
+      },
+      {
+        "clave": "NEGOCIO_O_INGRESO_VARIABLE",
+        "n": 6,
+        "pct": 0.5
+      },
+      {
+        "clave": "OLVIDO_O_DESCONOCIMIENTO",
+        "n": 5,
+        "pct": 0.42
+      },
+      {
+        "clave": "SINIESTRO_SEGURO_EN_TRAMITE",
+        "n": 0,
+        "pct": 0.0
+      }
+    ],
+    "motivos_secundarios": [
+      {
+        "clave": "INGRESOS_INSUFICIENTES",
+        "n": 45,
+        "pct": 32.61
+      },
+      {
+        "clave": "NEGOCIO_O_INGRESO_VARIABLE",
+        "n": 26,
+        "pct": 18.84
+      },
+      {
+        "clave": "ENFERMEDAD_O_CALAMIDAD",
+        "n": 17,
+        "pct": 12.32
+      },
+      {
+        "clave": "DESACUERDO_MONTO_O_COBRO",
+        "n": 14,
+        "pct": 10.14
+      },
+      {
+        "clave": "OTRO",
+        "n": 13,
+        "pct": 9.42
+      },
+      {
+        "clave": "DESEMPLEO",
+        "n": 8,
+        "pct": 5.8
+      },
+      {
+        "clave": "DESCUENTO_NOMINA_NO_APLICADO",
+        "n": 6,
+        "pct": 4.35
+      },
+      {
+        "clave": "SOBREENDEUDAMIENTO",
+        "n": 6,
+        "pct": 4.35
+      },
+      {
+        "clave": "YA_PAGO_O_PAGO_NO_APLICADO",
+        "n": 1,
+        "pct": 0.72
+      },
+      {
+        "clave": "SINIESTRO_SEGURO_EN_TRAMITE",
+        "n": 1,
+        "pct": 0.72
+      },
+      {
+        "clave": "NO_RECONOCE_LA_OBLIGACION",
+        "n": 1,
+        "pct": 0.72
+      }
+    ],
+    "ejemplos_evidencia": [
+      {
+        "motivo": "INGRESOS_INSUFICIENTES",
+        "evidencia": "MIS INGRESOS PARA ESTE MES SE DISMINUYERON"
+      },
+      {
+        "motivo": "INGRESOS_INSUFICIENTES",
+        "evidencia": "NO ME HAN PAGADO EN LE TRABAJADO"
+      },
+      {
+        "motivo": "DESACUERDO_MONTO_O_COBRO",
+        "evidencia": "MIRA TE COMENTO YO ESTOY AL DIA LO QUE SUCEDE ES QUE EN LA CUOTA DE MAYO LA CUAL PAGUE EL DIA 19 DE MAYO TUVE UN ERROR Y LA PAGUE CON LA REFERENCIA DEL ANTERIOR CREDITO EL CUAL YA NO ES VIGENTE"
+      },
+      {
+        "motivo": "DESACUERDO_MONTO_O_COBRO",
+        "evidencia": "PAGUÉ LA CUOTA DE JUNIO MÁS EL ADICIONAL Q NUNCA ENTENDÍ DE DONDE SALIÓ."
+      },
+      {
+        "motivo": "DESCUENTO_NOMINA_NO_APLICADO",
+        "evidencia": "NO TENGO MORA"
+      },
+      {
+        "motivo": "DESCUENTO_NOMINA_NO_APLICADO",
+        "evidencia": "SI A MI ME DESCUENTAN DE NOMINA MENSUAL"
+      },
+      {
+        "motivo": "DESEMPLEO",
+        "evidencia": "LLEVO YA DOS CUOTAS ATRASADAS DEL CRÉDITO DE PRODUCTO_LIBRANZA QUE TENGO, EN ESTE MOMENTO ESTOY SIN TRABAJO Y LA VERDAD NO TENGO CÓMO REALIZAR EL PAGO"
+      },
+      {
+        "motivo": "DESEMPLEO",
+        "evidencia": "HACE TRES MESES PERDÍ MI EMPLEO Y ESTADO BUSCANDO UNA BUENA OPCIÓN PARA MÍ. POR LO TANTO NO HE PODIDO CUMPLIR CON LOS PAGOS DE ESTA CUOTA."
+      },
+      {
+        "motivo": "ENFERMEDAD_O_CALAMIDAD",
+        "evidencia": "NO HE TRABAJADO POR TEMAS DE SALUD"
+      },
+      {
+        "motivo": "ENFERMEDAD_O_CALAMIDAD",
+        "evidencia": "EMERGENCIA FAMILIAR, LOS RECURSOS FAMILIARES SE VIERON AFECTADOS POR UNA CALAMIDAD DOMÉSTICA"
+      },
+      {
+        "motivo": "YA_PAGO_O_PAGO_NO_APLICADO",
+        "evidencia": "YO REALICE LE PAGO DEL MES PASADO NO ENTIENDO POR QUÉ 30 DÍAS DE MIRA"
+      },
+      {
+        "motivo": "YA_PAGO_O_PAGO_NO_APLICADO",
+        "evidencia": "MIRA PERO YO EL MES DE JUNIO PAGUÉ LA CUOTA DOCUMENTO_00000083."
+      }
+    ],
+    "reconoce_deuda_pct": 65.58,
+    "asesor_pregunta_motivo_pct": 44.61,
+    "motivo_no_pago_llm": [
+      {
+        "clave": "NINGUNO",
+        "n": 739,
+        "pct": 61.74
+      },
+      {
+        "clave": "INGRESOS_INSUFICIENTES",
+        "n": 140,
+        "pct": 11.7
+      },
+      {
+        "clave": "DESACUERDO_MONTO_O_COBRO",
+        "n": 84,
+        "pct": 7.02
+      },
+      {
+        "clave": "DESCUENTO_NOMINA_NO_APLICADO",
+        "n": 71,
+        "pct": 5.93
+      },
+      {
+        "clave": "DESEMPLEO",
+        "n": 60,
+        "pct": 5.01
+      },
+      {
+        "clave": "ENFERMEDAD_O_CALAMIDAD",
+        "n": 29,
+        "pct": 2.42
+      },
+      {
+        "clave": "OTRO",
+        "n": 21,
+        "pct": 1.75
+      },
+      {
+        "clave": "YA_PAGO_O_PAGO_NO_APLICADO",
+        "n": 19,
+        "pct": 1.59
+      },
+      {
+        "clave": "NO_RECONOCE_LA_OBLIGACION",
+        "n": 15,
+        "pct": 1.25
+      },
+      {
+        "clave": "NEGOCIO_O_INGRESO_VARIABLE",
+        "n": 7,
+        "pct": 0.58
+      },
+      {
+        "clave": "SOBREENDEUDAMIENTO",
+        "n": 7,
+        "pct": 0.58
+      },
+      {
+        "clave": "OLVIDO_O_DESCONOCIMIENTO",
+        "n": 5,
+        "pct": 0.42
+      },
+      {
+        "clave": "SINIESTRO_SEGURO_EN_TRAMITE",
+        "n": 0,
+        "pct": 0.0
+      }
+    ],
+    "motivo_reclasificadas_n": 19,
+    "ninguno_pct": 63.32,
+    "nivel": "reservas",
+    "aviso": "NINGUNO en 63.32% tras degradar por rol de la cita. La distribucion ya es informativa y no debe leerse como piso, pero sigue sin validacion humana (piloto + kappa pendiente) y las conversiones por motivo son observacionales."
+  },
+  "pregunta_b": {
+    "ofertas": [
+      {
+        "clave": "NORMALIZACION_AL_DIA",
+        "n": 217,
+        "pct": 31.63,
+        "pct_conversaciones": 18.13
+      },
+      {
+        "clave": "PLAN_PAGO_DIFERIDO",
+        "n": 207,
+        "pct": 30.17,
+        "pct_conversaciones": 17.29
+      },
+      {
+        "clave": "REESTRUCTURACION_CREDITO",
+        "n": 94,
+        "pct": 13.7,
+        "pct_conversaciones": 7.85
+      },
+      {
+        "clave": "DESCUENTO_O_CONDONACION",
+        "n": 55,
+        "pct": 8.02,
+        "pct_conversaciones": 4.59
+      },
+      {
+        "clave": "PAGO_MINIMO_O_ABONO_PARCIAL",
+        "n": 52,
+        "pct": 7.58,
+        "pct_conversaciones": 4.34
+      },
+      {
+        "clave": "CANAL_PAGO_FACILITADO",
+        "n": 29,
+        "pct": 4.23,
+        "pct_conversaciones": 2.42
+      },
+      {
+        "clave": "OTRA",
+        "n": 13,
+        "pct": 1.9,
+        "pct_conversaciones": 1.09
+      },
+      {
+        "clave": "PRORROGA_O_APLAZAMIENTO",
+        "n": 10,
+        "pct": 1.46,
+        "pct_conversaciones": 0.84
+      },
+      {
+        "clave": "ACTIVACION_SEGURO",
+        "n": 5,
+        "pct": 0.73,
+        "pct_conversaciones": 0.42
+      },
+      {
+        "clave": "REVISION_O_AJUSTE_DE_SALDO",
+        "n": 4,
+        "pct": 0.58,
+        "pct_conversaciones": 0.33
+      }
+    ],
+    "conversaciones_con_oferta": 475,
+    "conversaciones_con_oferta_pct": 39.68,
+    "ofertas_por_conversacion_media": 0.57,
+    "distribucion_n_ofertas": [
+      {
+        "clave": "0",
+        "n": 722,
+        "pct": 60.32
+      },
+      {
+        "clave": "1",
+        "n": 274,
+        "pct": 22.89
+      },
+      {
+        "clave": "2",
+        "n": 191,
+        "pct": 15.96
+      },
+      {
+        "clave": "3",
+        "n": 10,
+        "pct": 0.84
+      }
+    ],
+    "centrales_extraidas_n": 328,
+    "eda_menciones_centrales": 500
+  },
+  "pregunta_c": {
+    "argumentos": [
+      {
+        "clave": "EVITAR_REPORTE_CENTRALES",
+        "n": 328,
+        "pct": 68.05
+      },
+      {
+        "clave": "EVITAR_ESCALAMIENTO_JURIDICO",
+        "n": 89,
+        "pct": 18.46
+      },
+      {
+        "clave": "OTRO",
+        "n": 19,
+        "pct": 3.94
+      },
+      {
+        "clave": "AHORRO_INTERESES_MORA",
+        "n": 19,
+        "pct": 3.94
+      },
+      {
+        "clave": "FACILIDAD_Y_RAPIDEZ_DEL_TRAMITE",
+        "n": 14,
+        "pct": 2.9
+      },
+      {
+        "clave": "APELACION_EMPATICA",
+        "n": 5,
+        "pct": 1.04
+      },
+      {
+        "clave": "PRESERVAR_HISTORIAL_CREDITICIO",
+        "n": 5,
+        "pct": 1.04
+      },
+      {
+        "clave": "RECUPERAR_CUPO_O_ACCESO_CREDITO",
+        "n": 1,
+        "pct": 0.21
+      },
+      {
+        "clave": "BENEFICIO_TEMPORAL_URGENCIA",
+        "n": 1,
+        "pct": 0.21
+      },
+      {
+        "clave": "NINGUNO",
+        "n": 1,
+        "pct": 0.21
+      }
+    ],
+    "oferta_x_acuerdo": [
+      {
+        "clave": "NORMALIZACION_AL_DIA",
+        "n_conversaciones": 215,
+        "n_acuerdo": 30,
+        "tasa_acuerdo_pct": 13.95
+      },
+      {
+        "clave": "PLAN_PAGO_DIFERIDO",
+        "n_conversaciones": 207,
+        "n_acuerdo": 17,
+        "tasa_acuerdo_pct": 8.21
+      },
+      {
+        "clave": "REESTRUCTURACION_CREDITO",
+        "n_conversaciones": 92,
+        "n_acuerdo": 2,
+        "tasa_acuerdo_pct": 2.17
+      },
+      {
+        "clave": "DESCUENTO_O_CONDONACION",
+        "n_conversaciones": 55,
+        "n_acuerdo": 5,
+        "tasa_acuerdo_pct": 9.09
+      },
+      {
+        "clave": "PAGO_MINIMO_O_ABONO_PARCIAL",
+        "n_conversaciones": 52,
+        "n_acuerdo": 4,
+        "tasa_acuerdo_pct": 7.69
+      },
+      {
+        "clave": "CANAL_PAGO_FACILITADO",
+        "n_conversaciones": 29,
+        "n_acuerdo": 5,
+        "tasa_acuerdo_pct": 17.24
+      },
+      {
+        "clave": "OTRA",
+        "n_conversaciones": 13,
+        "n_acuerdo": 1,
+        "tasa_acuerdo_pct": 7.69
+      },
+      {
+        "clave": "PRORROGA_O_APLAZAMIENTO",
+        "n_conversaciones": 10,
+        "n_acuerdo": 0,
+        "tasa_acuerdo_pct": 0.0
+      },
+      {
+        "clave": "ACTIVACION_SEGURO",
+        "n_conversaciones": 5,
+        "n_acuerdo": 0,
+        "tasa_acuerdo_pct": 0.0
+      },
+      {
+        "clave": "REVISION_O_AJUSTE_DE_SALDO",
+        "n_conversaciones": 4,
+        "n_acuerdo": 0,
+        "tasa_acuerdo_pct": 0.0
+      }
+    ],
+    "argumento_x_acuerdo": [
+      {
+        "clave": "EVITAR_REPORTE_CENTRALES",
+        "n_conversaciones": 328,
+        "n_acuerdo": 33,
+        "tasa_acuerdo_pct": 10.06
+      },
+      {
+        "clave": "EVITAR_ESCALAMIENTO_JURIDICO",
+        "n_conversaciones": 89,
+        "n_acuerdo": 7,
+        "tasa_acuerdo_pct": 7.87
+      },
+      {
+        "clave": "AHORRO_INTERESES_MORA",
+        "n_conversaciones": 19,
+        "n_acuerdo": 1,
+        "tasa_acuerdo_pct": 5.26
+      },
+      {
+        "clave": "OTRO",
+        "n_conversaciones": 19,
+        "n_acuerdo": 2,
+        "tasa_acuerdo_pct": 10.53
+      },
+      {
+        "clave": "FACILIDAD_Y_RAPIDEZ_DEL_TRAMITE",
+        "n_conversaciones": 14,
+        "n_acuerdo": 0,
+        "tasa_acuerdo_pct": 0.0
+      },
+      {
+        "clave": "APELACION_EMPATICA",
+        "n_conversaciones": 5,
+        "n_acuerdo": 0,
+        "tasa_acuerdo_pct": 0.0
+      },
+      {
+        "clave": "PRESERVAR_HISTORIAL_CREDITICIO",
+        "n_conversaciones": 5,
+        "n_acuerdo": 0,
+        "tasa_acuerdo_pct": 0.0
+      },
+      {
+        "clave": "BENEFICIO_TEMPORAL_URGENCIA",
+        "n_conversaciones": 1,
+        "n_acuerdo": 0,
+        "tasa_acuerdo_pct": 0.0
+      },
+      {
+        "clave": "NINGUNO",
+        "n_conversaciones": 1,
+        "n_acuerdo": 0,
+        "tasa_acuerdo_pct": 0.0
+      },
+      {
+        "clave": "RECUPERAR_CUPO_O_ACCESO_CREDITO",
+        "n_conversaciones": 1,
+        "n_acuerdo": 1,
+        "tasa_acuerdo_pct": 100.0
+      }
+    ],
+    "linea_base_acuerdo_pct": 6.52,
+    "acuerdos_base_n": 78,
+    "n_tipos_con_acuerdo": 7,
+    "rango_acuerdo_por_tipo": "1-30",
+    "nota": "No medible de forma fiable: solo 78 acuerdos verificados repartidos en 7 tipos de oferta (1-30 cada uno), el asesor elige que ofrecer segun el caso (confusion), y el corpus esta truncado. Las tasas se muestran solo para transparencia; no deben rankearse."
+  },
+  "pregunta_d": {
+    "muestra_resumenes": [
+      {
+        "id": "CONV_00000639",
+        "resumen": "El cliente intenta contactar un asesor para discutir su negociación de pago, pero enfrenta múltiples problemas de comunicación y falta de claridad sobre el monto a pagar. El asesor le informa que debe realizar un pago inmediato, pero el cliente propone pagarlo en dos partes. A lo largo de la conversación, el cliente expresa su frustración por no haber sido informado de cambios en las condiciones de su crédito y menciona que esto es una práctica abusiva. La conversación termina sin un acuerdo cl…",
+        "acuerdo_pago": false,
+        "tipo_fecha": "SIN_FECHA",
+        "score_satisfaccion": 7.5,
+        "n_mensajes": 118
+      },
+      {
+        "id": "CONV_00000186",
+        "resumen": "El cliente contacta para saber cuánto debe de su crédito hipotecario y se entera de que tiene un saldo en mora. Tras enviar un recibo de pago, el asesor le informa que el pago ya está aplicado, pero el cliente no entiende el saldo pendiente y cuestiona el cobro adicional. El asesor le ofrece alternativas de normalización y le proporciona información de contacto, pero el cliente se muestra insatisfecho con las explicaciones. La conversación termina sin un acuerdo de pago claro.",
+        "acuerdo_pago": false,
+        "tipo_fecha": "SIN_FECHA",
+        "score_satisfaccion": 29.5,
+        "n_mensajes": 45
+      },
+      {
+        "id": "CONV_00001033",
+        "resumen": "El cliente contacta al banco para validar su caso relacionado con una tarjeta de crédito que presenta mora. Tras la validación de datos, el asesor le informa sobre el saldo pendiente y le pregunta si realizará el pago el 28. El cliente se muestra frustrado con el proceso y expresa su intención de cancelar la tarjeta. Finalmente, confirma que pagará el 28 a través de PSE, pero la conversación termina con un tono de molestia por la insistencia del asesor.",
+        "acuerdo_pago": false,
+        "tipo_fecha": "FECHA_ESPECIFICA",
+        "score_satisfaccion": 43.0,
+        "n_mensajes": 28
+      },
+      {
+        "id": "CONV_00000965",
+        "resumen": "El cliente inicia la conversación pidiendo más información sobre su situación de mora. Tras validar su información, el asesor le ofrece alternativas de pago y le pregunta sobre su situación económica. El cliente menciona que ha tenido una reducción de ingresos por calamidad familiar y que necesita refinanciar su deuda. Finalmente, el cliente indica que puede abonar 400 mil. El asesor le ofrece una opción de ampliación del saldo total a 60 meses adicionales, pero la conversación se interrumpe va…",
+        "acuerdo_pago": false,
+        "tipo_fecha": "SIN_FECHA",
+        "score_satisfaccion": 56.0,
+        "n_mensajes": 33
+      },
+      {
+        "id": "CONV_00000395",
+        "resumen": "El cliente contacta al banco para validar su caso y expresa que necesita realizar un acuerdo de pago. El asesor le informa que su crédito tiene 67 días de mora y le pregunta sobre la temporalidad de su situación, a lo que el cliente responde que ha tenido un año difícil debido a un robo y el fallecimiento de tres familiares. El asesor propone realizar una marcación telefónica para validar alternativas y el cliente acepta, proporcionando su número de documento y la hora para el contacto. La conv…",
+        "acuerdo_pago": false,
+        "tipo_fecha": "SIN_FECHA",
+        "score_satisfaccion": 60.5,
+        "n_mensajes": 28
+      },
+      {
+        "id": "CONV_00000011",
+        "resumen": "El cliente solicita validar alternativas de pago y pregunta por el monto mínimo que puede pagar. Tras la validación de su información, el asesor le informa que su crédito de vehículo está en mora por 74 días y le advierte sobre la posibilidad de orden de captura por no pago. El cliente sigue preguntando por el monto mínimo, pero no se llega a un acuerdo de pago. La conversación termina sin un compromiso claro.",
+        "acuerdo_pago": false,
+        "tipo_fecha": "SIN_FECHA",
+        "score_satisfaccion": 65.0,
+        "n_mensajes": 21
+      },
+      {
+        "id": "CONV_00000600",
+        "resumen": "El cliente contacta al banco para realizar un pago y confirma que tiene obligaciones pendientes. El asesor le ofrece alternativas para normalizar su situación, incluyendo trasladar la cuota al final del crédito, pero el cliente menciona que tiene gastos imprevistos y que el incumplimiento se debe a pagos de sus clientes. El cliente se compromete a realizar un pago el 16, pero rechaza la oferta de trasladar la cuota. La conversación finaliza con agradecimientos y sin fricción significativa.",
+        "acuerdo_pago": false,
+        "tipo_fecha": "FECHA_VAGA",
+        "score_satisfaccion": 65.0,
+        "n_mensajes": 39
+      },
+      {
+        "id": "CONV_00000707",
+        "resumen": "El cliente muestra interés en recibir asesoría para normalizar su situación financiera. Tras la validación de datos, el asesor informa sobre una mora baja en su crédito de vivienda y pregunta si puede contar con el pago para el día. El cliente expresa confusión sobre la mora, afirmando que ya pagó la cuota. El asesor genera un escalamiento para verificar la aplicación de ese pago. La conversación termina con el cliente agradeciendo y quedando atenta a la respuesta.",
+        "acuerdo_pago": false,
+        "tipo_fecha": "SIN_FECHA",
+        "score_satisfaccion": 65.0,
+        "n_mensajes": 20
+      },
+      {
+        "id": "CONV_00000171",
+        "resumen": "El cliente responde a un mensaje del banco indicando que desea contactarse. Tras un proceso de validación, el asesor le solicita información que el cliente no proporciona, argumentando que ya realizó un pago a través del portal del banco. El asesor insiste en la necesidad de la información para dejar el reporte en el sistema. El cliente se despide en un tono positivo, pero no se llega a un acuerdo claro sobre el estado de su obligación. La conversación incluye una encuesta de satisfacción al fi…",
+        "acuerdo_pago": false,
+        "tipo_fecha": "SIN_FECHA",
+        "score_satisfaccion": 65.0,
+        "n_mensajes": 21
+      },
+      {
+        "id": "CONV_00000128",
+        "resumen": "El cliente contacta al banco para validar su caso de normalización de crédito, ya que ha recibido mensajes de cobro a pesar de haber cumplido con los requisitos. El asesor le informa sobre el estado de su crédito y le ofrece la opción de reestructurar su deuda. El cliente acepta realizar un pago y autoriza la capitalización de intereses. La conversación termina con el cliente satisfecho y calificando con 5 la experiencia.",
+        "acuerdo_pago": false,
+        "tipo_fecha": "SIN_FECHA",
+        "score_satisfaccion": 91.0,
+        "n_mensajes": 79
+      },
+      {
+        "id": "CONV_00001165",
+        "resumen": "El cliente contacta al banco para consultar sobre la renegociación de su deuda. El asesor le ofrece consolidar el saldo de sus tarjetas de crédito con una tasa reducida y explica que esto implica la cancelación de las tarjetas y la creación de un nuevo crédito. El cliente hace varias preguntas sobre el proceso y finalmente acepta la propuesta. La conversación cierra con el cliente agradeciendo y sin quejas.",
+        "acuerdo_pago": false,
+        "tipo_fecha": "SIN_FECHA",
+        "score_satisfaccion": 95.5,
+        "n_mensajes": 39
+      },
+      {
+        "id": "CONV_00000934",
+        "resumen": "El cliente responde a un mensaje del banco sobre su estado financiero y solicita contacto. Tras la validación de datos, el asesor informa que su crédito está en mora y pregunta por un compromiso de pago. El cliente menciona una calamidad y se compromete a pagar el 28. El asesor confirma el compromiso y ofrece diferentes medios de pago. El cliente califica su experiencia con 10 en recomendación, 7 en satisfacción y 1 en facilidad para realizar el acuerdo.",
+        "acuerdo_pago": false,
+        "tipo_fecha": "FECHA_ESPECIFICA",
+        "score_satisfaccion": 100.0,
+        "n_mensajes": 25
+      }
+    ],
+    "n_total": 1197
+  },
+  "pregunta_e": {
+    "distribucion_score": [
+      {
+        "clave": "0-10",
+        "n": 1
+      },
+      {
+        "clave": "10-20",
+        "n": 19
+      },
+      {
+        "clave": "20-30",
+        "n": 91
+      },
+      {
+        "clave": "30-40",
+        "n": 53
+      },
+      {
+        "clave": "40-50",
+        "n": 89
+      },
+      {
+        "clave": "50-60",
+        "n": 73
+      },
+      {
+        "clave": "60-70",
+        "n": 508
+      },
+      {
+        "clave": "70-80",
+        "n": 2
+      },
+      {
+        "clave": "80-90",
+        "n": 29
+      },
+      {
+        "clave": "90-100",
+        "n": 332
+      }
+    ],
+    "factores": [
+      {
+        "clave": "NO_RESOLVIO_SOLICITUD",
+        "n": 376,
+        "pct": 54.73
+      },
+      {
+        "clave": "TRATO_INADECUADO",
+        "n": 72,
+        "pct": 10.48
+      },
+      {
+        "clave": "FALTA_DE_FLEXIBILIDAD_EN_LA_OFERTA",
+        "n": 51,
+        "pct": 7.42
+      },
+      {
+        "clave": "SIN_RESPUESTA_HUMANA",
+        "n": 51,
+        "pct": 7.42
+      },
+      {
+        "clave": "INFORMACION_CONTRADICTORIA",
+        "n": 49,
+        "pct": 7.13
+      },
+      {
+        "clave": "BUCLE_BOT",
+        "n": 41,
+        "pct": 5.97
+      },
+      {
+        "clave": "SOLICITUD_REPETIDA_DE_DATOS",
+        "n": 24,
+        "pct": 3.49
+      },
+      {
+        "clave": "DEMORA_EXCESIVA",
+        "n": 15,
+        "pct": 2.18
+      },
+      {
+        "clave": "PRESION_EXCESIVA",
+        "n": 4,
+        "pct": 0.58
+      },
+      {
+        "clave": "PROBLEMA_TECNICO_CANAL",
+        "n": 2,
+        "pct": 0.29
+      },
+      {
+        "clave": "OTRO",
+        "n": 2,
+        "pct": 0.29
+      }
+    ],
+    "peores": [
+      {
+        "id": "CONV_00000639",
+        "score_satisfaccion": 7.5,
+        "satisfaccion_llm": 1,
+        "factores": "NO_RESOLVIO_SOLICITUD|FALTA_DE_FLEXIBILIDAD_EN_LA_OFERTA|TRATO_INADECUADO",
+        "recomendacion_mejora": "Mejorar la capacitación de los asesores para que puedan ofrecer soluciones claras y efectivas a los clientes, y asegurar que la información sobre cambios en las condiciones de crédito se comunique de manera oportuna y transparente.",
+        "resumen": "El cliente intenta contactar un asesor para discutir su negociación de pago, pero enfrenta múltiples problemas de comunicación y falta de claridad sobre el monto a pagar. El asesor le informa que debe realizar un pago inmediato, pero el cliente propone pagarlo en dos partes. A lo largo de la conversación, el cliente e…",
+        "hubo_friccion_bot": false,
+        "conversacion_abandonada": false
+      },
+      {
+        "id": "CONV_00000282",
+        "score_satisfaccion": 12.0,
+        "satisfaccion_llm": 1,
+        "factores": "SIN_RESPUESTA_HUMANA|NO_RESOLVIO_SOLICITUD",
+        "recomendacion_mejora": "Asegurarse de que el bot pueda identificar cuando un cliente no es la persona correcta y escalar la conversación a un asesor humano de inmediato para evitar frustraciones.",
+        "resumen": "El cliente contacta al banco para validar su caso, pero indica que no es la persona que llaman y que el número no coincide con el de la deuda. A pesar de que el bot intenta validar la información y ofrece ayuda, el cliente se muestra desinteresado y repite que no tiene relación con el banco. La conversación termina si…",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": true
+      },
+      {
+        "id": "CONV_00000288",
+        "score_satisfaccion": 12.0,
+        "satisfaccion_llm": 1,
+        "factores": "SIN_RESPUESTA_HUMANA|NO_RESOLVIO_SOLICITUD|TRATO_INADECUADO",
+        "recomendacion_mejora": "Mejorar el proceso de validación para que el cliente no tenga que repetir su información y asegurar que los asesores puedan acceder a la información necesaria para atender al cliente sin demoras.",
+        "resumen": "El cliente contacta al banco tras un mensaje de cobro y menciona que pagó ayer, pero el bot no reconoce su pago y repite la misma plantilla de validación. El cliente se muestra frustrado pidiendo que no lo molesten y que ya pagó. Finalmente, el asesor humano no puede brindar información sin la validación de seguridad,…",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": true
+      },
+      {
+        "id": "CONV_00000336",
+        "score_satisfaccion": 12.0,
+        "satisfaccion_llm": 1,
+        "factores": "TRATO_INADECUADO",
+        "recomendacion_mejora": "Mejorar la gestión de seguimiento a los clientes que han cumplido con sus pagos, evitando la escalada de llamadas innecesarias que generan incomodidad.",
+        "resumen": "El cliente contacta al banco porque le están requiriendo un pago de la cuota del crédito de vivienda que ya realizó. El asesor confirma que el crédito está al día y anota la situación para evitar futuros mensajes. El cliente califica la experiencia con un 0 y expresa su molestia por la insistencia de los asesores. La …",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": true
+      },
+      {
+        "id": "CONV_00000793",
+        "score_satisfaccion": 12.0,
+        "satisfaccion_llm": 1,
+        "factores": "SIN_RESPUESTA_HUMANA|NO_RESOLVIO_SOLICITUD",
+        "recomendacion_mejora": "Mejorar la capacidad del bot para identificar y escalar casos donde el cliente expresa frustración o desinterés, asegurando que un asesor humano tome el control de la conversación de inmediato.",
+        "resumen": "El cliente intenta validar su caso, pero se encuentra con un bot que repite opciones y no responde a su solicitud. A pesar de insistir en su deseo de validar su caso, el cliente se frustra y expresa que no tiene relación con el banco. El asesor humano que interviene repite la solicitud de información sin atender la qu…",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": true
+      },
+      {
+        "id": "CONV_00000825",
+        "score_satisfaccion": 12.0,
+        "satisfaccion_llm": 1,
+        "factores": "SIN_RESPUESTA_HUMANA|NO_RESOLVIO_SOLICITUD",
+        "recomendacion_mejora": "Asegurar que los asesores respondan directamente a las consultas de los clientes y evitar que el bot repita mensajes sin sentido, especialmente en situaciones donde el cliente ya ha expresado una necesidad clara.",
+        "resumen": "El cliente contacta al banco para consultar sobre saldos vencidos y solicita hablar con un asesor. Tras varias interacciones, el asesor pide la fecha de expedicion del documento y el correo, pero el cliente insiste en su solicitud de información sobre saldos. La conversacion se interrumpe con el bot repitiendo mensaje…",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": true
+      },
+      {
+        "id": "CONV_00000830",
+        "score_satisfaccion": 12.0,
+        "satisfaccion_llm": 1,
+        "factores": "NO_RESOLVIO_SOLICITUD|TRATO_INADECUADO",
+        "recomendacion_mejora": "Mejorar la atención al cliente en solicitudes de exoneración de cuotas, asegurando que se validen adecuadamente las solicitudes previas y se ofrezcan soluciones efectivas.",
+        "resumen": "El cliente contacta al banco para hablar con un asesor y expresa su descontento con la cuota de manejo de su tarjeta de crédito. El asesor le ofrece una reestructuración de la deuda, pero el cliente se niega y solicita la exoneración de la cuota de manejo, argumentando que ya lo ha solicitado antes. El asesor le indic…",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": false
+      },
+      {
+        "id": "CONV_00000940",
+        "score_satisfaccion": 12.0,
+        "satisfaccion_llm": 1,
+        "factores": "SIN_RESPUESTA_HUMANA|NO_RESOLVIO_SOLICITUD|BUCLE_BOT",
+        "recomendacion_mejora": "Asegurar que un asesor humano esté disponible para atender al cliente en el momento en que se muestra interés, evitando la dependencia de un bot que no puede resolver inquietudes específicas.",
+        "resumen": "El cliente responde a un mensaje del banco mostrando interés en recibir asesoría, pero luego se siente frustrado por la falta de atención y la repetición de mensajes por parte del bot. A pesar de que el asesor humano intenta obtener información adicional, la conversación se interrumpe y el cliente no recibe una respue…",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": true
+      },
+      {
+        "id": "CONV_00001134",
+        "score_satisfaccion": 12.0,
+        "satisfaccion_llm": 1,
+        "factores": "BUCLE_BOT|SIN_RESPUESTA_HUMANA|NO_RESOLVIO_SOLICITUD",
+        "recomendacion_mejora": "Asegurar que un asesor humano esté disponible para atender las solicitudes de los clientes y evitar la repetición de mensajes automáticos que no aportan valor.",
+        "resumen": "El cliente intenta comunicarse con el banco para normalizar su situación financiera. A lo largo de la conversación, el BOT repite varias veces la misma plantilla de bienvenida y la solicitud de datos, sin que un asesor humano intervenga efectivamente. El cliente pide ayuda para cerrar un caso, pero no recibe respuesta…",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": true
+      },
+      {
+        "id": "CONV_00000018",
+        "score_satisfaccion": 16.5,
+        "satisfaccion_llm": 1,
+        "factores": "SIN_RESPUESTA_HUMANA|NO_RESOLVIO_SOLICITUD",
+        "recomendacion_mejora": "Implementar un proceso de verificación de identidad más flexible que permita al cliente recibir asistencia sin necesidad de tener todos los datos a la mano, o proporcionar alternativas de contacto más efectivas.",
+        "resumen": "El cliente contacta al banco para hablar con un asesor, pero no tiene a mano los datos necesarios para validar su identidad. El asesor le informa que no puede ayudar sin esos datos y el cliente se queja de recibir mensajes de cobro. A lo largo de la conversación, el cliente expresa su insatisfacción calificando con 0 …",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": true
+      },
+      {
+        "id": "CONV_00000182",
+        "score_satisfaccion": 16.5,
+        "satisfaccion_llm": 1,
+        "factores": "BUCLE_BOT|SIN_RESPUESTA_HUMANA|NO_RESOLVIO_SOLICITUD",
+        "recomendacion_mejora": "Mejorar la atención al cliente asegurando que un asesor humano responda a las inquietudes del cliente sin depender de respuestas automatizadas repetitivas.",
+        "resumen": "El cliente inicia la conversación tras un mensaje de cobro y expresa su descontento por recibir llamadas, afirmando que no debe nada a otro banco. A lo largo de la conversación, el BOT repite opciones de respuesta sin atender las inquietudes del cliente. Finalmente, el BOT presenta un asesor humano, pero no se ofrecen…",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": true
+      },
+      {
+        "id": "CONV_00000187",
+        "score_satisfaccion": 16.5,
+        "satisfaccion_llm": 1,
+        "factores": "SIN_RESPUESTA_HUMANA|BUCLE_BOT|NO_RESOLVIO_SOLICITUD",
+        "recomendacion_mejora": "Asegurar que un asesor humano esté disponible para continuar la conversación y evitar que el BOT interrumpa repetidamente, especialmente cuando el cliente ha expresado interés en llegar a un acuerdo.",
+        "resumen": "El cliente inicia la conversación solicitando un asesor y proporciona su información de identificación. El asesor le informa sobre su crédito con mora baja y pregunta por un pago inmediato, pero el cliente se niega y expresa su intención de hacer un acuerdo de pago. La conversación se ve interrumpida por mensajes repe…",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": true
+      },
+      {
+        "id": "CONV_00000423",
+        "score_satisfaccion": 16.5,
+        "satisfaccion_llm": 1,
+        "factores": "NO_RESOLVIO_SOLICITUD|FALTA_DE_FLEXIBILIDAD_EN_LA_OFERTA|TRATO_INADECUADO",
+        "recomendacion_mejora": "Mejorar la capacitación de los asesores para que puedan ofrecer respuestas claras y detalladas sobre los cobros y evitar redirigir al cliente a otros canales sin resolver su solicitud.",
+        "resumen": "El cliente se interesa en las opciones de pago ofrecidas por el banco, pero al interactuar con el asesor, se encuentra con confusión sobre los incrementos en las cuotas de su crédito. A pesar de solicitar un detallado de los cobros, el asesor le indica que debe gestionar esa solicitud a través del servicio al cliente,…",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": false
+      },
+      {
+        "id": "CONV_00000454",
+        "score_satisfaccion": 16.5,
+        "satisfaccion_llm": 1,
+        "factores": "SIN_RESPUESTA_HUMANA|NO_RESOLVIO_SOLICITUD",
+        "recomendacion_mejora": "Asegurar que un asesor humano esté disponible para atender al cliente cuando este lo solicite, evitando que el bot repita preguntas sin avanzar en la solución.",
+        "resumen": "El cliente responde a un mensaje del banco y desea contactar con un asesor. Sin embargo, el bot repite la solicitud de la fecha de expedición del documento y el correo electrónico, y el asesor no logra avanzar en la conversación, insistiendo en preguntar por el motivo de contacto. El cliente expresa su frustración al …",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": true
+      },
+      {
+        "id": "CONV_00000529",
+        "score_satisfaccion": 16.5,
+        "satisfaccion_llm": 1,
+        "factores": "BUCLE_BOT|SIN_RESPUESTA_HUMANA|NO_RESOLVIO_SOLICITUD",
+        "recomendacion_mejora": "Mejorar el proceso de validación de datos para permitir que el cliente hable con un asesor humano sin necesidad de repetir información, especialmente si el cliente ya ha proporcionado datos previamente.",
+        "resumen": "El cliente intenta contactar un asesor y se enfrenta a un proceso de validación de datos que no avanza. A pesar de proporcionar información, el asesor insiste en que falta la fecha de expedición del documento y el correo electrónico, lo que lleva a un bucle sin resolución. La conversación termina con el bot indicando …",
+        "hubo_friccion_bot": true,
+        "conversacion_abandonada": true
+      }
+    ],
+    "score_medio": 66.63
+  },
+  "cruces": {
+    "acuerdo_x_tipo_fecha": [
+      {
+        "clave": "SIN_FECHA",
+        "n": 878,
+        "n_acuerdo": 0,
+        "tasa_acuerdo_pct": 0.0
+      },
+      {
+        "clave": "FECHA_ESPECIFICA",
+        "n": 191,
+        "n_acuerdo": 78,
+        "tasa_acuerdo_pct": 40.84
+      },
+      {
+        "clave": "FECHA_VAGA",
+        "n": 128,
+        "n_acuerdo": 0,
+        "tasa_acuerdo_pct": 0.0
+      }
+    ],
+    "acuerdo_x_reconoce_deuda": [
+      {
+        "clave": "True",
+        "n": 785,
+        "n_acuerdo": 77,
+        "tasa_acuerdo_pct": 9.81
+      },
+      {
+        "clave": "False",
+        "n": 412,
+        "n_acuerdo": 1,
+        "tasa_acuerdo_pct": 0.24
+      }
+    ],
+    "acuerdo_x_friccion_bot": [
+      {
+        "clave": "False",
+        "n": 938,
+        "n_acuerdo": 68,
+        "tasa_acuerdo_pct": 7.25
+      },
+      {
+        "clave": "True",
+        "n": 259,
+        "n_acuerdo": 10,
+        "tasa_acuerdo_pct": 3.86
+      }
+    ],
+    "score_x_acuerdo": {
+      "con_acuerdo": 90.56,
+      "sin_acuerdo": 64.96
+    },
+    "score_x_friccion_bot": {
+      "con_friccion": 48.19,
+      "sin_friccion": 71.72
+    },
+    "sentimiento_inicial": [
+      {
+        "clave": "NEUTRO",
+        "n": 1087,
+        "pct": 90.81
+      },
+      {
+        "clave": "NEGATIVO",
+        "n": 91,
+        "pct": 7.6
+      },
+      {
+        "clave": "POSITIVO",
+        "n": 17,
+        "pct": 1.42
+      },
+      {
+        "clave": "MUY_NEGATIVO",
+        "n": 2,
+        "pct": 0.17
+      },
+      {
+        "clave": "MUY_POSITIVO",
+        "n": 0,
+        "pct": 0.0
+      }
+    ],
+    "sentimiento_final": [
+      {
+        "clave": "NEUTRO",
+        "n": 485,
+        "pct": 40.52
+      },
+      {
+        "clave": "POSITIVO",
+        "n": 365,
+        "pct": 30.49
+      },
+      {
+        "clave": "NEGATIVO",
+        "n": 170,
+        "pct": 14.2
+      },
+      {
+        "clave": "MUY_NEGATIVO",
+        "n": 104,
+        "pct": 8.69
+      },
+      {
+        "clave": "MUY_POSITIVO",
+        "n": 73,
+        "pct": 6.1
+      }
+    ],
+    "componentes_score": {
+      "componente_llm_medio": 57.79,
+      "componente_objetivo_medio": 87.25,
+      "penalizacion_media": 12.75
+    }
+  },
+  "controles": {
+    "fuente": "docs/BRIEFING_RAG.md secciones 5.1-5.6 (corrida nano 2026-09-10) + re-run final con gpt-4o-mini + validador v13",
+    "corrida": {
+      "conversaciones": 1197,
+      "validas": 1197,
+      "fallidas": 0,
+      "duracion_min": 204.4,
+      "costo_usd_reportado": 2.72,
+      "nota": "Corrida final con gpt-4o-mini + validador v13 (roles de cita para acuerdo_pago y motivo_no_pago): 1.197/1.197 conversaciones, 0 fallos. Reemplaza la corrida original con gpt-4.1-nano (1.134/1.197 validas, 63 fallos, 173,1 min, ~USD 2,2; ver docs/BRIEFING_RAG.md), que se mantiene documentada como parte de la bitacora de proveedores pero ya no describe los datos de este tablero."
+    },
+    "auditoria_citas": [
+      {
+        "campo": "acuerdo_evidencia (debe citar al USUARIO)",
+        "total": 308,
+        "rol_correcto": 62,
+        "rol_equivocado": 216,
+        "no_localizable": 30,
+        "detalle_equivocado": "214 citan al AGENTE, 2 al BOT"
+      },
+      {
+        "campo": "evidencia_motivo (debe citar al USUARIO)",
+        "total": 75,
+        "rol_correcto": 57,
+        "rol_equivocado": 8,
+        "no_localizable": 10,
+        "detalle_equivocado": "8 citan al AGENTE"
+      },
+      {
+        "campo": "evidencia de oferta (debe citar al AGENTE)",
+        "total": 1016,
+        "rol_correcto": 786,
+        "rol_equivocado": 39,
+        "no_localizable": 156,
+        "detalle_equivocado": "27 citan al USUARIO, 12 al BOT/HSM"
+      }
+    ],
+    "sondeo_lexico_motivos": {
+      "descripcion": "Sondeo propio por expresiones regulares sobre mensajes [USUARIO], comparado con lo que el modelo asigno en esas mismas conversaciones.",
+      "filas": [
+        {
+          "clave": "YA_PAGO_O_PAGO_NO_APLICADO",
+          "regex_marca": 79,
+          "modelo_asigna": 0,
+          "modelo_pone_ninguno": 77
+        },
+        {
+          "clave": "DESCUENTO_NOMINA_NO_APLICADO",
+          "regex_marca": 63,
+          "modelo_asigna": 5,
+          "modelo_pone_ninguno": 54
+        },
+        {
+          "clave": "DESEMPLEO",
+          "regex_marca": 42,
+          "modelo_asigna": 3,
+          "modelo_pone_ninguno": 32
+        }
+      ],
+      "evidencia_sin_clasificar": 312,
+      "nota": "312 conversaciones traen evidencia_motivo no nula y aun asi motivo_no_pago=NINGUNO: el modelo localiza y copia la frase del cliente y luego se abstiene de clasificarla."
+    },
+    "acuerdo_verificado": {
+      "llm_pct": 13.03,
+      "llm_n": 156,
+      "verificado_pct": 6.52,
+      "verificado_n": 78,
+      "reclasificadas_n": 78,
+      "nota": "El campo acuerdo_pago que se usa en todo el tablero es el VERIFICADO: True solo si la cita de compromiso aparece textualmente en un mensaje [USUARIO]. Un validador de rol tumbo 78 de los 156 acuerdos que el LLM habia marcado (en esos casos la fecha o el compromiso lo enuncia el asesor, contraejemplo 4 de REGLA_ACUERDO). acuerdo_pago_llm se conserva en el CSV solo para trazabilidad."
+    },
+    "validacion_nps": {
+      "descripcion": "rho de Spearman del score contra el NPS 0-10 que el propio cliente declara al cierre. Recalculado sobre la corrida final con gpt-4o-mini (236 conversaciones con ambas medidas; la corrida con nano daba 217, con otros valores de rho, ver docs/BRIEFING_RAG.md).",
+      "solo_llm": 0.766,
+      "hibrido_70_30": 0.625,
+      "solo_objetivo": 0.347,
+      "media_score_detractores": 33.1,
+      "media_score_pasivos": 69.9,
+      "media_score_promotores": 88.3,
+      "lectura": "Confirma, con mas margen que en la corrida con nano, que la hipotesis de diseno del 70/30 no se sostiene: mezclar el 30% de senales objetivas empeora la concordancia con la unica verdad de campo disponible (0,625 frente a 0,766 solo con el LLM); la brecha crece de 5 a 14 puntos respecto a nano. Se conserva el hibrido documentado por su menor dispersion, pero para leer el score como proxy de satisfaccion real conviene el componente LLM solo."
+    },
+    "fiabilidad_por_pregunta": [
+      {
+        "pregunta": "a",
+        "titulo": "Motivos de no pago",
+        "estado": "con_reservas",
+        "detalle": "NINGUNO en 63.32% tras degradar por rol de la cita: distribucion informativa, pero aun sin validacion humana (piloto + kappa pendiente)."
+      },
+      {
+        "pregunta": "b",
+        "titulo": "Ofertas del asesor",
+        "estado": "con_reservas",
+        "detalle": "Auditoria de citas (77% en rol correcto) hecha sobre una corrida anterior con otro modelo, no repetida con la extraccion actual; probable sub-extraccion frente al conteo lexico del EDA."
+      },
+      {
+        "pregunta": "c",
+        "titulo": "Que argumentos convierten mas",
+        "estado": "no_utilizable",
+        "detalle": "No hay ranking medible: 78 acuerdos verificados repartidos en 7 tipos de oferta (1-30 cada uno); las diferencias de cabeza no sobreviven a ningun intervalo de confianza. Ademas confusion asesor-elige-oferta y corpus truncado."
+      },
+      {
+        "pregunta": "d",
+        "titulo": "Resumen de cada llamada",
+        "estado": "sin_auditar",
+        "detalle": "1197 resumenes generados; calidad no auditada sistematicamente."
+      },
+      {
+        "pregunta": "e",
+        "titulo": "Conversaciones peor calificadas",
+        "estado": "utilizable",
+        "detalle": "Distribucion sin compresion al centro; rho = 0,77 del componente LLM con el NPS declarado (recalculado con la extraccion actual, n=236)."
+      }
+    ]
+  },
+  "taxonomias": {
+    "ArgumentoPersuasion": [
+      "EVITAR_REPORTE_CENTRALES",
+      "PRESERVAR_HISTORIAL_CREDITICIO",
+      "AHORRO_INTERESES_MORA",
+      "BENEFICIO_TEMPORAL_URGENCIA",
+      "EVITAR_ESCALAMIENTO_JURIDICO",
+      "RECUPERAR_CUPO_O_ACCESO_CREDITO",
+      "FACILIDAD_Y_RAPIDEZ_DEL_TRAMITE",
+      "APELACION_EMPATICA",
+      "OTRO",
+      "NINGUNO"
+    ],
+    "FactorInsatisfaccion": [
+      "BUCLE_BOT",
+      "SIN_RESPUESTA_HUMANA",
+      "SOLICITUD_REPETIDA_DE_DATOS",
+      "INFORMACION_CONTRADICTORIA",
+      "NO_RESOLVIO_SOLICITUD",
+      "FALTA_DE_FLEXIBILIDAD_EN_LA_OFERTA",
+      "DEMORA_EXCESIVA",
+      "PRESION_EXCESIVA",
+      "TRATO_INADECUADO",
+      "PROBLEMA_TECNICO_CANAL",
+      "OTRO",
+      "NINGUNO"
+    ],
+    "MotivoNoPago": [
+      "YA_PAGO_O_PAGO_NO_APLICADO",
+      "DESCUENTO_NOMINA_NO_APLICADO",
+      "DESEMPLEO",
+      "INGRESOS_INSUFICIENTES",
+      "SOBREENDEUDAMIENTO",
+      "ENFERMEDAD_O_CALAMIDAD",
+      "NEGOCIO_O_INGRESO_VARIABLE",
+      "DESACUERDO_MONTO_O_COBRO",
+      "SINIESTRO_SEGURO_EN_TRAMITE",
+      "NO_RECONOCE_LA_OBLIGACION",
+      "OLVIDO_O_DESCONOCIMIENTO",
+      "OTRO",
+      "NINGUNO"
+    ],
+    "Sentimiento": [
+      "MUY_NEGATIVO",
+      "NEGATIVO",
+      "NEUTRO",
+      "POSITIVO",
+      "MUY_POSITIVO"
+    ],
+    "TipoFecha": [
+      "FECHA_ESPECIFICA",
+      "FECHA_VAGA",
+      "SIN_FECHA"
+    ],
+    "TipoOferta": [
+      "PLAN_PAGO_DIFERIDO",
+      "REESTRUCTURACION_CREDITO",
+      "DESCUENTO_O_CONDONACION",
+      "PAGO_MINIMO_O_ABONO_PARCIAL",
+      "NORMALIZACION_AL_DIA",
+      "PRORROGA_O_APLAZAMIENTO",
+      "CANAL_PAGO_FACILITADO",
+      "ACTIVACION_SEGURO",
+      "REVISION_O_AJUSTE_DE_SALDO",
+      "OTRA",
+      "NINGUNA"
+    ]
+  },
+  "eda": {
+    "filas_crudas": 42607,
+    "filas_dedup": 42005,
+    "conversaciones": 1197,
+    "roles": {
+      "USUARIO": 18619,
+      "AGENTE": 13770,
+      "BOT": 8408,
+      "HSM": 1208
+    },
+    "hechos": [
+      "No hay timestamp: el orden lo da el consecutivo de uk_id_mensaje, monotono dentro de cada conversacion.",
+      "anio y mes son constantes: no hay eje temporal ni tendencias.",
+      "Corpus truncado por diseno: minimo 20 mensajes por conversacion; las interacciones cortas no estan representadas.",
+      "El BOT se presenta como asesor humano; solo el rol AGENTE genera ofertas y argumentos.",
+      "Texto en MAYUSCULAS por la exportacion, no es enfasis ni agresividad.",
+      "El anonimizador reemplazo nombres por subcadena y rompio palabras en 1.625 mensajes de 856 conversaciones (71,5%); PERSONA_00000008=ANA, PERSONA_00000031=CESAR, PERSONA_00000108=JULIO decodificados con certeza."
+    ]
+  },
+  "metodologia": {
+    "extraccion": {
+      "esquema": "22 campos Pydantic, 4 taxonomias cerradas ancladas en frecuencias reales del corpus, orden evidencia -> conclusion.",
+      "prompt_fijo_tokens": 8149,
+      "llamadas_por_conversacion": "hasta 3 (1 + 2 reintentos de validacion dirigidos)",
+      "temperatura": 0,
+      "formato": "json_object + validacion Pydantic + reintento que devuelve el error al modelo"
+    },
+    "acuerdo_pago": "Definicion vinculante del enunciado: solo es acuerdo si el cliente manifiesta explicitamente su compromiso de pago indicando una fecha especifica. Codificada en el prompt, en validadores duros de esquema.py que rechazan la respuesta incoherente, y en el reintento dirigido.",
+    "score_satisfaccion": "Hibrido 70% juicio del LLM (rubrica 1-5, sin compresion al centro) + 30% senales objetivas (bucle de bot, sin agente humano, cliente repite, conversacion larga sin acuerdo, cierre negativo). Los pesos son una hipotesis fundamentada, no una calibracion."
+  },
+  "limitaciones": [
+    "Corpus truncado (minimo 20 mensajes): no extrapolable a interacciones cortas, mayoria en una operacion real.",
+    "La tasa de acuerdo de pago es la verificada por rol de la cita (6.52%, 78 conv.); el LLM sobre-marca acuerdos ~5x (13.03%). Las tasas por oferta se calculan sobre esos 78.",
+    "Las tasas de conversion por oferta son observacionales, no causales: el asesor elige que ofrecer segun el caso.",
+    "Los pesos del score hibrido son una hipotesis fundamentada, no una calibracion.",
+    "Sin eje temporal: anio y mes son constantes.",
+    "Cobertura 100.0%: 0 conversaciones sin extraccion valida.",
+    "No existe medicion de la calidad de la extraccion contra anotacion humana (kappa pendiente)."
+  ]
+}
